@@ -1,0 +1,38 @@
+[
+  {
+    "id": 0,
+    "name": "Categoria1",
+    "row": [
+      {
+        "subcategoria": "subcategoria1"
+      },
+      {
+        "subcategoria": "subcategoria2"
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "name": "Categoria2",
+    "row": [
+      {
+        "subcategoria": "subcategoria3"
+      },
+      {
+        "subcategoria": "subcategoria4"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Categoria3",
+    "row": [
+      {
+        "subcategoria": "subcategoria5"
+      },
+      {
+        "subcategoria": "subcategoria6"
+      }
+    ]
+  }
+]
