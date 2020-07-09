@@ -72,13 +72,16 @@ app.get('/',
 
   app.get('/itens/:subcategoria',
   function(req, res){
-    //if (req.params.subcategoria == "subcategoria1"){
-    res.sendFile(path.join(__dirname, 'views/itens.html'));
-    //}
-    /*else{
-      res.send("error");
-    }*/
-    //res.redirect('/');
+    const itens = require("./itens/itens.json");  
+    for (let i in itens) {
+      for (let j in itens[i].row) {
+        if(req.params.subcategoria == itens[i].row[j].subcategoria){
+          console.log(req.params.subcategoria);
+          console.log(itens[i].row[j].subcategoria);
+          res.sendFile(path.join(__dirname, 'views/itens.html'));
+        }
+      }
+    } 
   });
 
 app.get('/login',
