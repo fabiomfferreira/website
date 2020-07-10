@@ -125,15 +125,15 @@ app.get('/admin',
     res.sendFile(path.join(__dirname, 'views/Admin/password.html'));
   });
 
-//POST adiciona itens - categoria,subcategoria
-app.post('/gravaitens', function(request, response) {
+
+  //POST adiciona itens - nova subcategoria
+app.post('/gravasub', function(request, response) {
   const data = request.body;
   allData.push(data);
   response.json(allData);
-
+  console.log(allData);
   // Requiring itens file 
   const itens = require("./itens/itens.json"); 
-  let novoid=itens.length;
   let obj = { subcategoria: data.subcategoria };
   
   for(let i=0; i<itens.length; i++) 
@@ -142,14 +142,39 @@ app.post('/gravaitens', function(request, response) {
       if(itens[i].name==data.categoria){
         itens[i].row.push(obj);
         console.log("sucesso a gravar subcategoria nova");
-        existe=0;
-      }
-      else if((itens[i].name!=data.categoria)){
-        existe=1;
-      }   
+      } 
     }    
+  
+  // STEP 3: Writing to a file 
+  fs.writeFile("./itens/itens.json", JSON.stringify(itens,null,2), function(err){   
+    // Checking for errors 
+    if (err) throw err;  
+    console.log("Escrito com sucesso"); // Success 
+  });
+});
 
-    if(existe==1){
+
+//POST adiciona itens - nova categoria e nova subcategoria
+app.post('/gravaitens', function(request, response) {
+  const data = request.body;
+  allData.push(data);
+  response.json(allData);
+
+  // Requiring itens file 
+  const itens = require("./itens/itens.json"); 
+  let novoid=itens.length;
+  //let obj = { subcategoria: data.subcategoria };
+  let existe=0;  
+  
+  for(let i=0; i<itens.length; i++) 
+    {        
+      //ve se a categoria introduzida já existe, se existir acrescenta a subcategoria à respetiva categoria
+      if(itens[i].name==data.categoria){
+        existe=1;
+      } 
+    }  
+
+    if(existe==0){
       // Defining new item
       let x = { 
         id: novoid, 
@@ -161,7 +186,7 @@ app.post('/gravaitens', function(request, response) {
       itens.push(x);
       console.log("sucesso a gravar categoria e subcategoria nova");
     }
-  
+
   // STEP 3: Writing to a file 
   fs.writeFile("./itens/itens.json", JSON.stringify(itens,null,2), function(err){   
     // Checking for errors 

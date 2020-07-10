@@ -70,7 +70,30 @@
                         <li class="breadcrumb-item active" id="cat">Seja bem vindo Admin!</li>
                     </ol>
                     <div class="container" id="container-addcategoria">
-                        <div class="row justify-content-center">
+                        <div class="row ">
+                            <div class="col-lg-6">
+                                <div class="card card-addcategoria shadow-lg border rounded-lg mt-5">
+                                    <div class="card-header">
+                                        <h3 class="text-center my-4">Item</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div  id="formaddcategoria">
+                                            <div class="form-group">
+                                                <label class="small mb-2" for="inputCategoria">Categoria</label><br>
+                                                <select class="form-control" id="subMenuList"></select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="small mb-2" for="inputSubcategoria">Adicionar Subcategoria</label>
+                                                <input class="form-control py-4" id="inputSub"
+                                                    placeholder="Introduza a nova subcategoria..." required>
+                                            </div>
+                                            <div class="form-group mt-3 mb-0">
+                                                <button type="submit" class="btn btn-submit" id="btnaddsubCategoria" onClick="window.location.reload();">Adicionar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="col-lg-6">
                                 <div class="card card-addcategoria shadow-lg border rounded-lg mt-5">
                                     <div class="card-header">
@@ -79,11 +102,11 @@
                                     <div class="card-body">
                                         <form id="formaddcategoria">
                                             <div class="form-group">
-                                                <label class="small mb-2" for="inputCategoria">Categoria</label>
-                                                <input class="form-control py-4" id="inputCategoria"
-                                                    placeholder="Introduza a nova categoria ou a categoria existente..." required>
+                                                <label class="small mb-2" for="inputCat">Nova Categoria</label>
+                                                <input class="form-control py-4" id="inputCat"
+                                                    placeholder="Introduza a nova categoria..." required>
                                                 <label class="small mb-2" for="inputSubcategoria">
-                                                    Subcategoria</label>
+                                                    Nova Subcategoria</label>
                                                 <input class="form-control py-4" id="inputSubcategoria"
                                                     placeholder="Introduza a nova subcategoria..." required>
                                             </div>
@@ -93,8 +116,9 @@
                                         </form>
                                     </div>
                         
+                            </div>
+                            
                         </div>
-                    </div>
                     
                 </div>
             </main>
@@ -120,7 +144,6 @@
     <script src="/Js/admin.js"></script>
     <script src="/Js/index.js"></script>
     <script src="/Js/adminrlerdados.js"></script>
-    <script src="/Js/show-itens.js"></script>
 </body>
 
 </html>
