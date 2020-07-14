@@ -1,7 +1,5 @@
-
-
 const records = require("./useradmin");
-//records[0].password="benfica";
+
 exports.findById = function(id, cb) {
   process.nextTick(function() {
     var idx = id - 1;

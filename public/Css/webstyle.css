@@ -258,6 +258,9 @@ body {
 }
 
 /*CART*/
+#carrinho-body{
+    margin-top: -40px;
+}
 .cart-column {
     display: flex;
     align-items: center;
