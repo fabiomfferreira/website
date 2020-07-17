@@ -1,4 +1,38 @@
 export default class Artigo{
+    id;
+    nome;
+    preco;
+    img;
+    card;
+
+    constructor(id, img,nome,preco) {
+        this.id = id;
+        this.nome = nome;
+        this.preco = preco;
+        this.img = img;
+
+        this.createCard();
+    }
+
+    createCard() {
+        this.card = `<div class="card h-100">
+                <img class="card-img-top  artigo_img" src="${this.img}" alt="">
+                <div class="card-body">
+                <a href="#" data-toggle="tooltip" title="Informações"> <button type="button" class="btn btn-infos fas fa-plus-circle" data-toggle="modal" data-target="#infoModal"></button></a>
+                    <h4 class="card-title">${this.nome}</h4>
+                    <div class="card-price">
+                        <span class="card-price-new">${this.preco}€</span> <del class="card-price-old">1.99 €</del>
+                    </div>
+                    <button type="button" class="btn btn-danger btn-extra" data-toggle="modal" data-target="#extrasModal">Extras</button>
+                </div>
+                <div class="card-footer">
+                    <button data-name="${this.nome}" data-price="${this.preco}" class= "btn btn-add btn-lg add-to-cart"><i class="fas fa-cart-plus"></i></button>
+                </div>
+                </div>`;
+    }
+}
+
+/*export default class Artigo{
     label_informacoes;
     nome;
     preco;
@@ -33,4 +67,4 @@ export default class Artigo{
                 </div>
                 </div>`;
     }
-}
+}*/

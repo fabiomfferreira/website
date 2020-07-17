@@ -70,7 +70,8 @@
             <h1 id="h1">Itens</h1>
             <br><br><br>
             <div class="row" id="artigos-container">
-                <div class="col-lg-2 mb-5">
+               
+               <!-- <div class="col-lg-2 mb-5">
                     <div class="card h-100">
                         <img class="card-img-top artigo_img" src="/Assets/agua.jpg">
                         <div class="card-body">
@@ -201,7 +202,7 @@
                             <button data-name="Item Oito" data-price="4.99" class= "btn btn-add add-to-cart"><i class="fas fa-cart-plus"></i></button>
                         </div>
                     </div>
-                </div>
+                </div>-->
 
 
             </div>
@@ -230,26 +231,6 @@
             </div>
         </div>
 
-        <!-- Modal para as informaçoes -->
-        <div class="modal fade" id="infoModal">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title">Informações do Artigo</h4>
-                    </div>
-                    <!-- Modal body -->
-                    <div class="modal-body">
-
-                    </div>
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">Fechar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--Fim do Modal informações-->
 
         <!-- Modal para o carrinho -->
         <div class="modal fade" id="carrinhoModal">
@@ -283,13 +264,11 @@
                                         <table class="show-cart table">
           
                                         </table>
-                                        <div>Total price: $<span class="total-cart"></span></div>
                                     
                                     <div class="cart-total">
                                         <br><br>
                                         <hr>
-                                        <strong class="cart-total-title">Preço Total:</strong>
-                                        <strong class="cart-total-price"></strong>
+                                        <strong class="cart-total-title">Preço Total: <span class="total-cart"></span>€</strong>
                                     </div>
                                 
                             </div>
@@ -350,6 +329,7 @@
 <script src="/Js/stepper.js"></script>
 <script src="/Js/index.js" type="module" ></script>
 <script src="/Js/lerdados.js"></script>
+<script src="/Js/artigos.js"></script>
 <script src="/Js/carrinho.js"></script>
 </body>
 

@@ -137,16 +137,15 @@ var shoppingCart = (function() {
   // Triggers / Events
   // ***************************************** 
   // Add item
-  $('.add-to-cart').click(function(event) {
-    event.preventDefault();
-    var name = $(this).data('name');
-    var price = Number($(this).data('price'));
+  function addToCart(nome,preco) {
+    let name = nome
+    let price = Number(preco);
     shoppingCart.addItemToCart(name, price, 1);
     displayCart();
-  });
+  };
   
   // Clear items
-  $('.clear-cart').click(function() {
+  $('.clear-cart').on("click",function() {
     shoppingCart.clearCart();
     displayCart();
   });
@@ -184,9 +183,8 @@ var shoppingCart = (function() {
   }
   
   // Delete item button
-  
   $('.show-cart').on("click", ".delete-item", function(event) {
-    var name = $(this).data('name')
+    let name = $(this).data('name')
     shoppingCart.removeItemFromCartAll(name);
     displayCart();
   })
@@ -195,6 +193,8 @@ var shoppingCart = (function() {
   // -1
   $('.show-cart').on("click", ".minus-item", function(event) {
     var name = $(this).data('name')
+    console.log($(this).data('name'));
+    console.log(name);
     shoppingCart.removeItemFromCart(name);
     displayCart();
   })

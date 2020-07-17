@@ -1,13 +1,13 @@
 [
   {
     "id": 0,
-    "name": "Categoria1",
+    "name": "Categoria 1",
     "row": [
       {
-        "subcategoria": "subcategoria1"
+        "subcategoria": "subcategoria 1"
       },
       {
-        "subcategoria": "subcategoria2"
+        "subcategoria": "subcategoria 2"
       }
     ]
   },

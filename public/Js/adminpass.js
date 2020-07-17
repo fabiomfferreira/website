@@ -3,7 +3,6 @@ let password;
       const button = document.getElementById('btn-changepass');
       button.addEventListener('click', async event => {
         password = document.getElementById("inputPassword").value;
-        //console.log(password);
         const data = {password};
         const options = {
           method: 'POST',
@@ -19,7 +18,6 @@ let password;
           console.log("erro");
         }
         const json = await response.json();
-        //console.log(json);
       });
     
       
