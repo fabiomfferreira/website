@@ -8,8 +8,10 @@ function showTab(n) {
     //... and fix the Previous/Next buttons:
     if (n == 0) {
         document.getElementById("prevBtn").style.display = "none";
+        document.getElementById("clearBtn").style.display = "inline";
     } else {
         document.getElementById("prevBtn").style.display = "inline";
+        document.getElementById("clearBtn").style.display = "none";
     }
     if (n == (x.length - 1)) {
         document.getElementById("nextBtn").innerHTML = "Submeter";

@@ -59,7 +59,7 @@ app.use(require('express-session')({ secret: 'keyboard cat', resave: false, save
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Define routes
+// Define rotas
 app.get('/',
   function(req, res){
     res.sendFile(path.join(__dirname, 'views/index.html'));
@@ -70,12 +70,13 @@ app.get('/',
     res.sendFile(path.join(__dirname, 'views/Categorias/aguas.html'));
   });
 
-  app.get('/itens/:subcategoria',
+  app.get('/:subcategoria',
   function(req, res){
     const itens = require("./itens/itens.json");  
     for (let i in itens) {
       for (let j in itens[i].row) {
         if(req.params.subcategoria == itens[i].row[j].subcategoria){
+          console.log(itens[i].row[j].id);
           console.log(req.params.subcategoria);
           console.log(itens[i].row[j].subcategoria);
           res.sendFile(path.join(__dirname, 'views/itens.html'));
@@ -127,14 +128,14 @@ app.get('/admin',
 
 
   //POST adiciona itens - nova subcategoria
-app.post('/gravasub', function(request, response) {
+  app.post('/gravasub', function(request, response) {
   const data = request.body;
   allData.push(data);
   response.json(allData);
   console.log(allData);
   // Requiring itens file 
   const itens = require("./itens/itens.json"); 
-  let obj = { subcategoria: data.subcategoria };
+  let obj = { subcategoria: data.subcategoria ,artigos: []};
   
   for(let i=0; i<itens.length; i++) 
     {        
@@ -159,19 +160,23 @@ app.post('/gravaitens', function(request, response) {
   const data = request.body;
   allData.push(data);
   response.json(allData);
-
+  let novoid;
   // Requiring itens file 
   const itens = require("./itens/itens.json"); 
-  let novoid=itens.length;
+  
   //let obj = { subcategoria: data.subcategoria };
   let existe=0;  
   
   for(let i=0; i<itens.length; i++) 
-    {        
-      //ve se a categoria introduzida já existe, se existir acrescenta a subcategoria à respetiva categoria
+    { 
+      //ve se a categoria introduzida já existe
       if(itens[i].name==data.categoria){
         existe=1;
       } 
+      if(i==itens.length-1){
+        novoid=itens[i].id+1;
+        console.log(novoid);
+      }
     }  
 
     if(existe==0){
@@ -180,7 +185,11 @@ app.post('/gravaitens', function(request, response) {
         id: novoid, 
         name: data.categoria, 
         row: [
-          {subcategoria:data.subcategoria}
+          {subcategoria:data.subcategoria,
+            artigos:[
+
+            ]
+          }
         ] 
       }; 
       itens.push(x);
@@ -273,27 +282,25 @@ app.post('/novapassword', function(request, response){
 
 
   
-  /*// Requiring itens file 
+ /* // Requiring itens file 
   const itens = require("./itens/itens.json"); 
   let x,z;
-  for(let i=0; i<itens.length; i++) 
-    {  
-      for(let j=0;j<itens[i].row.length;j++){
-        x=itens[i].row.length;
-        for(let j=0;j<x;j++){
-          z=itens[i].row[j].subcategoria;
-          console.log(z);
-        }
-        console.log(z);
-      }      
-      console.log(x);
-    } 
-
+  let novo={id:1}
+      
     for (let i in itens) {
       x = itens[i].name;
       console.log(x);
       for (let j in itens[i].row) {
-        z = itens[i].row[j].subcategoria;
-        console.log(z);
+        if("uba"==itens[i].row[j].subcategoria){
+          itens[i].row[j].artigos.push(novo);
+        }
       }
-    }*/
+    }
+    console.log(z);
+    //Writing to a file 
+    fs.writeFile("./itens/itens.json", JSON.stringify(itens,null,2), err => { 
+    // Checking for errors 
+    if (err) throw err;  
+    console.log("Escrito com sucesso"); // Success 
+  });
+ */

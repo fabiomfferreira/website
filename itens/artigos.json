@@ -1,22 +1,26 @@
 [
     {
-        "id": 0,
+        "id": 1,
         "img": "/Assets/agua.jpg",
-        "nome": "Artigo1",
+        "nome": "Artigo novo",
         "preco": 1.50,
         "sem_desconto": 2.00,
-        "info": "agua mineral natural"
+        "info": "agua mineral natural",
+        "catid": 1,
+        "subid": 1
     },
     {
-        "id": 1,
+        "id": 2,
         "img": "/Assets/agua_alcafaz.jpg",
         "nome": "Artigo2",
         "preco": 0.50,
         "sem_desconto":null,
-        "info": "agua alcafaz"
+        "info": "agua alcafaz",
+        "catid": 2,
+        "subid": 2
     },
     {
-        "id": 2,
+        "id": 3,
         "img": "/Assets/agua_evian.jpg",
         "nome": "Artigo3",
         "preco": 1.99,
@@ -24,7 +28,7 @@
         "info": "agua evian"
     },
     {
-        "id": 3,
+        "id": 4,
         "img": "/Assets/agua_fastio.jpg",
         "nome": "Artigo4",
         "preco": 1.00,
@@ -32,7 +36,7 @@
         "info": "agua fastio"
     },
     {
-        "id": 4,
+        "id": 5,
         "img": "/Assets/luso_garrafao.jpg",
         "nome": "Artigo5",
         "preco": 1.50,
@@ -40,7 +44,7 @@
         "info": "agua luso garrafão"
     },
     {
-        "id": 5,
+        "id": 6,
         "img": "/Assets/luso_vidro.jpg",
         "nome": "Artigo6",
         "preco": 1.50,
@@ -48,7 +52,7 @@
         "info": "agua luso garrafa de vidro"
     },
     {
-        "id": 6,
+        "id": 7,
         "img": "/Assets/luso_33cl.png",
         "nome": "Artigo7",
         "preco": 1.50,
@@ -56,7 +60,7 @@
         "info": "agua luso garrafa 33cl"
     },
     {
-        "id": 7,
+        "id": 8,
         "img": "/Assets/agua.jpg",
         "nome": "Artigo8",
         "preco": 1.50,

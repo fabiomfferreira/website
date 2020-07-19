@@ -3,68 +3,96 @@ export default class Artigo{
     nome;
     preco;
     img;
+    info;
+    sem_desconto;
+    catid;
+    subid;
     card;
 
-    constructor(id, img,nome,preco) {
+    constructor(id, img,nome,preco,info,sem_desconto,catid,subid) {
         this.id = id;
         this.nome = nome;
         this.preco = preco;
         this.img = img;
-
+        this.info=info;
+        this.sem_desconto=sem_desconto;
+        this.catid=catid;
+        this.subid=subid;
         this.createCard();
     }
 
     createCard() {
-        this.card = `<div class="card h-100">
+        if(this.sem_desconto!=null){
+            this.card = `<div class="card h-100">
                 <img class="card-img-top  artigo_img" src="${this.img}" alt="">
                 <div class="card-body">
-                <a href="#" data-toggle="tooltip" title="Informações"> <button type="button" class="btn btn-infos fas fa-plus-circle" data-toggle="modal" data-target="#infoModal"></button></a>
+                <a href="#" data-toggle="tooltip" title="Informações"> <button type="button" class="btn btn-infos fas fa-plus-circle openmodal" data-toggle="modal" data-target="#modal${this.id}"></button></a>
                     <h4 class="card-title">${this.nome}</h4>
                     <div class="card-price">
-                        <span class="card-price-new">${this.preco}€</span> <del class="card-price-old">1.99 €</del>
+                        <span class="card-price-new">${this.preco}€</span> <del class="card-price-old"> ${this.sem_desconto}€</del>
                     </div>
                     <button type="button" class="btn btn-danger btn-extra" data-toggle="modal" data-target="#extrasModal">Extras</button>
                 </div>
                 <div class="card-footer">
-                    <button data-name="${this.nome}" data-price="${this.preco}" class= "btn btn-add btn-lg add-to-cart"><i class="fas fa-cart-plus"></i></button>
+                    <button data-name="${this.nome}" data-price="${this.preco}" class= "btn btn-add btn-lg add-to-cart" onclick="addToCart('${this.nome}','${this.preco}')"><i class="fas fa-cart-plus"></i></button>
                 </div>
+                </div>
+                <!-- Modal para as informaçoes -->
+                <div class="modal fade" id="modal${this.id}">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title">Informações do Artigo</h4>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                ${this.info}
+                            </div>
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">Fechar</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>`;
+        } else{
+            this.card = `<div class="card h-100">
+                <img class="card-img-top  artigo_img" src="${this.img}" alt="">
+                <div class="card-body">
+                <a href="#" data-toggle="tooltip" title="Informações"> <button type="button" class="btn btn-infos fas fa-plus-circle openmodal" data-toggle="modal" data-target="#modal${this.id}"></button></a>
+                    <h4 class="card-title">${this.nome}</h4>
+                    <div class="card-price">
+                        <span class="card-price-new">${this.preco}€</span> <del class="card-price-old"></del>
+                    </div>
+                    <button type="button" class="btn btn-danger btn-extra" data-toggle="modal" data-target="#extrasModal">Extras</button>
+                </div>
+                <div class="card-footer">
+                    <button data-name="${this.nome}" data-price="${this.preco}" class= "btn btn-add btn-lg add-to-cart" onclick="addToCart('${this.nome}','${this.preco}')"><i class="fas fa-cart-plus"></i></button>
+                </div>
+                </div>
+                <!-- Modal para as informaçoes -->
+                <div class="modal fade" id="modal${this.id}">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title">Informações do Artigo</h4>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                ${this.info}
+                            </div>
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">Fechar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
+        }
+        
+
     }
 }
 
-/*export default class Artigo{
-    label_informacoes;
-    nome;
-    preco;
-    img;
-    label_extras;
-    label;
-    card;
-
-    constructor(label_informacoes, nome, preco, img, label_extras, label) {
-        this.label_informacoes = label_informacoes;
-        this.nome = nome;
-        this.preco = preco;
-        this.img = img;
-        this.label_extras = label_extras;
-        this.label = label;
-
-
-        this.createCard();
-    }
-
-    createCard() {
-        this.card = `<div class="card h-100">
-                <a href="#" data-toggle="tooltip" title="Informações"> <button type="button" class="btn btn-infos fas fa-plus-circle" data-toggle="modal" data-target="#infoModal">${this.label_informacoes}</button></a>
-                <a href="#"><img class="card-img-top" src="${this.img}" alt=""></a>
-                <div class="card-body">
-                    <h4 class="card-title">${this.nome}</h4>
-                    <h5 class="card-price">${this.preco}</h5>
-                    <button type="button" class="btn btn-danger btn-extra btn-lg" data-toggle="modal" data-target="#extrasModal">${this.label_extras}</button>
-                </div>
-                <div class="card-footer">
-                    <button class= "btn btn-add btn-lg">${this.label}</button>
-                </div>
-                </div>`;
-    }
-}*/

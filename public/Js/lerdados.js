@@ -1,8 +1,7 @@
+import Artigo from './artigo.js';
+
+//Menu itens categoria/subcategoria
 let categorias;
-
-let dropdown = $("#ddl-categorias");
-
-
 (() => {
     fetch('/itens.json')
         .then(resp => resp.json())
@@ -47,10 +46,17 @@ let dropdown = $("#ddl-categorias");
 
 
               element.row.forEach(sub => {
-                let subcategoria = document.createElement('a');
+                var subcategoria = document.createElement('a');
                 subcategoria.text = sub.subcategoria;
                 //subcategoria.href = "/itens/"+sub.subcategoria;   // LINK para a categoria
-                subcategoria.setAttribute("href","/itens/"+sub.subcategoria);
+                subcategoria.setAttribute("href","/"+sub.subcategoria);
+                subcategoria.id=sub.subcategoria;
+                console.log(subcategoria.getAttribute("href"));
+               /* if(subcategoria.addEventListener){
+                  subcategoria.addEventListener('click', function(){
+                     alert(sub.subcategoria);
+                  });}*/
+                
                 subcategoria.classList = "dropdown-item text-left";
                 collapse_card.append(subcategoria);
               })
@@ -64,4 +70,25 @@ let dropdown = $("#ddl-categorias");
             });
         })
         .catch(e => console.error(e));
+})();
+
+//artigos
+let artigos;
+
+(() => {
+    fetch('/artigos.json')
+        .then(resp => resp.json())
+        .then(data => {
+            artigos = data;
+            data.forEach(element => {
+                let art=new Artigo(element.id,element.img,element.nome,element.preco,element.info,element.sem_desconto,element.catid,element.subid);
+                let  container= document.getElementById('artigos-container')
+                let col =document.createElement('div');
+                col.classList = 'col-lg-2 mb-5';
+                col.innerHTML+=art.card;
+                container.append(col);
+                console.log(art);
+        });
+        })
+    .catch(e => console.error(e));    
 })();

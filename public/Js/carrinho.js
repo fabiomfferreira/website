@@ -14,7 +14,6 @@ var shoppingCart = (function() {
     // guarda o carrinho - session storage
     function saveCart() {
       sessionStorage.setItem('shoppingCart', JSON.stringify(cart));
-      console.log(cart);
     }
     
       // carrega o carrinho -  session storage
@@ -138,10 +137,11 @@ var shoppingCart = (function() {
   // ***************************************** 
   // Add item
   function addToCart(nome,preco) {
-    let name = nome
-    let price = Number(preco);
+    var name = nome
+    var price = Number(preco);
     shoppingCart.addItemToCart(name, price, 1);
     displayCart();
+    console.log(name,price)
   };
   
   // Clear items
@@ -167,13 +167,14 @@ var shoppingCart = (function() {
         output+="<tr>"
         + "<td>"  + cartArray[i].name + "</td>" 
         + "<td>(" + cartArray[i].price + ")</td>"
-        + "<td><div class='input-group'><button class='minus-item input-group-addon btn btn-primary' data-name=" + cartArray[i].name + ">-</button>"
-        + "<input type='number' class='item-count form-control' data-name='" + cartArray[i].name + "' value='" + cartArray[i].count + "'>"
-        + "<button class='plus-item btn btn-primary input-group-addon' data-name=" + cartArray[i].name + ">+</button></div></td>"
+        + "<td><div class='input-group'><button class='minus-item input-group-addon btn btn-primary' data-name='"+cartArray[i].name+"'>-</button>"
+        + "<input type='number' class='item-count form-control' data-name='"+cartArray[i].name+"' value='" + cartArray[i].count + "'>"
+        + "<button class='plus-item btn btn-primary input-group-addon' data-name='"+cartArray[i].name+"'>+</button></div></td>"
         + "<td>" + cartArray[i].total + "</td>"
         + " = " 
-        + "<td><button class='delete-item btn btn-danger' data-name=" + cartArray[i].name + ">X</button></td>"
+        + "<td><button class='delete-item btn btn-danger' data-name='"+cartArray[i].name+"'>X</button></td>"
         +  "</tr>";
+        console.log(cartArray[i].name);
     }
     $('.cart-table-title').html(title);
   

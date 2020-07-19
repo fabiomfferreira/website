@@ -1,36 +1,42 @@
 [
   {
-    "id": 0,
+    "id": 1,
     "name": "Categoria 1",
     "row": [
       {
+        "id":1,
         "subcategoria": "subcategoria 1"
       },
       {
+        "id":2,
         "subcategoria": "subcategoria 2"
       }
     ]
   },
   {
-    "id": 1,
+    "id": 2,
     "name": "Categoria2",
     "row": [
       {
+        "id":1,
         "subcategoria": "subcategoria3"
       },
       {
+        "id":2,
         "subcategoria": "subcategoria4"
       }
     ]
   },
   {
-    "id": 2,
+    "id": 3,
     "name": "Categoria3",
     "row": [
       {
+        "id":1,
         "subcategoria": "subcategoria5"
       },
       {
+        "id":2,
         "subcategoria": "subcategoria6"
       }
     ]
