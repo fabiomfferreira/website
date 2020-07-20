@@ -1,13 +1,3 @@
-"use strict";
-//import Artigo from "Artigo";
-
-
-/*$(document).ready(function () {
-    $("#btn-comprar").click(function () {
-        $("#carrinho-body").text("oi");
-    })
-});*/
-
 $('.dropdown-menu a.dropdown-toggle').on('click', function(e) {
     if (!$(this).next().hasClass('show')) {
         $(this).parents('.dropdown-menu').first().find('.show').removeClass('show');

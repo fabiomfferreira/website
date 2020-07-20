@@ -1,4 +1,3 @@
-
 const express = require('express');
 const app = express();
 let passport = require('passport');
@@ -65,12 +64,7 @@ app.get('/',
     res.sendFile(path.join(__dirname, 'views/index.html'));
   });
 
-  app.get('/categorias',
-  function(req, res){
-    res.sendFile(path.join(__dirname, 'views/Categorias/aguas.html'));
-  });
-
-  app.get('/:subcategoria',
+  app.get('/itens/:subcategoria',
   function(req, res){
     const itens = require("./itens/itens.json");  
     for (let i in itens) {
@@ -135,12 +129,26 @@ app.get('/admin',
   console.log(allData);
   // Requiring itens file 
   const itens = require("./itens/itens.json"); 
-  let obj = { subcategoria: data.subcategoria ,artigos: []};
-  
+  let obj;
+  for (let i=0; i<itens.length;i++) {
+    for (let j=0; j<itens[i].row.length;j++) {
+      if(j==itens[i].row.length-1)
+      {
+        novoidsub=itens[i].row[j].id+1;
+      }
+    }
+  }
+
   for(let i=0; i<itens.length; i++) 
     {        
-      //ve se a categoria introduzida já existe, se existir acrescenta a subcategoria à respetiva categoria
       if(itens[i].name==data.categoria){
+          for (let j=0; j<itens[i].row.length;j++) {
+            if(j==itens[i].row.length-1)
+            {
+              novoidsub=itens[i].row[j].id+1;
+              obj={ id: novoidsub, subcategoria: data.subcategoria};
+            }
+          }
         itens[i].row.push(obj);
         console.log("sucesso a gravar subcategoria nova");
       } 
@@ -160,7 +168,7 @@ app.post('/gravaitens', function(request, response) {
   const data = request.body;
   allData.push(data);
   response.json(allData);
-  let novoid;
+  let novoid,novoidsub=1;
   // Requiring itens file 
   const itens = require("./itens/itens.json"); 
   
@@ -185,10 +193,9 @@ app.post('/gravaitens', function(request, response) {
         id: novoid, 
         name: data.categoria, 
         row: [
-          {subcategoria:data.subcategoria,
-            artigos:[
-
-            ]
+          {
+            id:novoidsub ,
+            subcategoria:data.subcategoria
           }
         ] 
       }; 
@@ -283,24 +290,23 @@ app.post('/novapassword', function(request, response){
 
   
  /* // Requiring itens file 
-  const itens = require("./itens/itens.json"); 
-  let x,z;
-  let novo={id:1}
+  const artigos = require("./itens/artigos.json"); 
+  let x=1,z=1,art="Artigo2";
+  let catid=x;
+  let subid=z;
       
-    for (let i in itens) {
-      x = itens[i].name;
-      console.log(x);
-      for (let j in itens[i].row) {
-        if("uba"==itens[i].row[j].subcategoria){
-          itens[i].row[j].artigos.push(novo);
-        }
+    for (let i in artigos) {
+      if(artigos[i].nome==art){
+        console.log(artigos[i].nome);
+        artigos[i].catid=catid;
+        artigos[i].subid=subid;
       }
+      
     }
-    console.log(z);
     //Writing to a file 
-    fs.writeFile("./itens/itens.json", JSON.stringify(itens,null,2), err => { 
+    fs.writeFile("./itens/artigos.json", JSON.stringify(artigos,null,2), err => { 
     // Checking for errors 
     if (err) throw err;  
     console.log("Escrito com sucesso"); // Success 
-  });
- */
+  });*/
+ 

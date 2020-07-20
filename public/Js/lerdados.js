@@ -48,15 +48,8 @@ let categorias;
               element.row.forEach(sub => {
                 var subcategoria = document.createElement('a');
                 subcategoria.text = sub.subcategoria;
-                //subcategoria.href = "/itens/"+sub.subcategoria;   // LINK para a categoria
-                subcategoria.setAttribute("href","/"+sub.subcategoria);
-                subcategoria.id=sub.subcategoria;
-                console.log(subcategoria.getAttribute("href"));
-               /* if(subcategoria.addEventListener){
-                  subcategoria.addEventListener('click', function(){
-                     alert(sub.subcategoria);
-                  });}*/
-                
+                // LINK para a subcategoria
+                subcategoria.setAttribute("href","/itens/"+sub.subcategoria);              
                 subcategoria.classList = "dropdown-item text-left";
                 collapse_card.append(subcategoria);
               })
@@ -88,6 +81,34 @@ let artigos;
                 col.innerHTML+=art.card;
                 container.append(col);
                 console.log(art);
+        });
+        })
+    .catch(e => console.error(e));    
+})();
+
+let maximo=6;
+let i=0;
+(() => {
+    fetch('/artigos.json')
+        .then(resp => resp.json())
+        .then(data => {
+            artigos = data;
+            data.forEach(element => {
+                let art=new Artigo(element.id,element.img,element.nome,element.preco,element.info,element.sem_desconto,element.catid,element.subid);
+                if(art.sem_desconto!=null){
+                    i++;
+                    if(i<=maximo){
+                        let  container= document.getElementById('promo_container')
+                        /*let carousel=document.createElement('div');
+                        carousel.classList = 'carousel-item active';*/
+                        let col =document.createElement('div');
+                        col.classList = 'col-lg-2 mb-5';
+                        col.innerHTML+=art.card;
+                        //carousel.append(col);
+                        container.append(col);
+                        console.log(art);
+                    }
+                }
         });
         })
     .catch(e => console.error(e));    
