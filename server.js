@@ -64,9 +64,10 @@ app.get('/',
     res.sendFile(path.join(__dirname, 'views/index.html'));
   });
 
-  app.get('/itens/:subcategoria',
+  app.get('/itens',
   function(req, res){
-    const itens = require("./itens/itens.json");  
+    res.sendFile(path.join(__dirname, 'views/itens.html'));
+    /*const itens = require("./itens/itens.json");  
     for (let i in itens) {
       for (let j in itens[i].row) {
         if(req.params.subcategoria == itens[i].row[j].subcategoria){
@@ -76,7 +77,7 @@ app.get('/',
           res.sendFile(path.join(__dirname, 'views/itens.html'));
         }
       }
-    } 
+    } */
   });
 
 /*app.get('/dados/:oi',

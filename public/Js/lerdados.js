@@ -50,12 +50,37 @@ let artigos;
                 var subcategoria = document.createElement('a');
                 subcategoria.text = sub.subcategoria;
                 subcategoria.setAttribute('id', sub.subcategoria);
-                subcategoria.setAttribute("onclick","valid("+(subcategoria.id)+")");
+                //subcategoria.setAttribute('onclick',"abreSub("+(subcategoria.id)+")");
                 // LINK para a subcategoria
-                subcategoria.setAttribute("href","/itens/"+sub.subcategoria);              
+                subcategoria.setAttribute("href","/itens");              
                 subcategoria.classList = "dropdown-item text-left";
-                //subcategoria.addEventListener("click", carregaSub(this), false);
                 collapse_card.append(subcategoria);
+                /*subcategoria.addEventListener("click", function(event) {
+                    if(this.id==sub.subcategoria){
+                        console.log(this.id);
+                        element.row.forEach(subart => {
+                            (() => {
+                                fetch('/artigos.json')
+                                    .then(resp => resp.json())
+                                    .then(data => {
+                                        artigos = data;
+                                        data.forEach(element => {
+                                            let art=new Artigo(element.id,element.img,element.nome,element.preco,element.info,element.sem_desconto);
+                                            if(subart.artigos==art.id){
+                                                let  container= document.getElementById('artigos-container')
+                                                let col =document.createElement('div');
+                                                col.classList = 'col-lg-2 mb-5';
+                                                col.innerHTML+=art.card;
+                                                container.append(col);
+                                            }
+                                    });
+                                    })
+                                .catch(e => console.error(e));    
+                            })();
+                        });
+                    }
+                    event.preventDefault();
+                  });*/
               })
          
               collapse.append(collapse_card);
@@ -69,9 +94,8 @@ let artigos;
         .catch(e => console.error(e));
 })();
 
-
 //mostrar artigos
-(() => {
+/*(() => {
     fetch('/artigos.json')
         .then(resp => resp.json())
         .then(data => {
@@ -87,7 +111,7 @@ let artigos;
         });
         })
     .catch(e => console.error(e));    
-})();
+})();*/
 
 //mostrar artigos em promoção
 let maximo=6;
