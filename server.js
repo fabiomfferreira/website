@@ -21,7 +21,7 @@ const allData = [];
 // will be set at `req.user` in route handlers after authentication.
 passport.use(new Strategy(
   function(username, password, cb) {
-    db.users.findByUsername(username, function(err, user) {
+    db.admins.findByUsername(username, function(err, user) {
       if (err) { return cb(err); }
       if (!user) { return cb(null, false); }
       if (user.password != password) { return cb(null, false); }
@@ -41,7 +41,7 @@ passport.serializeUser(function(user, cb) {
 });
 
 passport.deserializeUser(function(id, cb) {
-  db.users.findById(id, function (err, user) {
+  db.admins.findById(id, function (err, user) {
     if (err) { return cb(err); }
     cb(null, user);
   });
@@ -78,6 +78,15 @@ app.get('/',
       }
     } 
   });
+
+/*app.get('/dados/:oi',
+  function(req,res){
+    var dataToSendToClient = req.params.oi;
+    // convert whatever we want to send (preferably should be an object) to JSON
+    var JSONdata = JSON.stringify(dataToSendToClient);
+    console.log(JSONdata);
+    res.send(JSONdata);
+  });*/
 
 app.get('/login',
   function(req, res){
@@ -120,50 +129,7 @@ app.get('/admin',
     res.sendFile(path.join(__dirname, 'views/Admin/password.html'));
   });
 
-
-  //POST adiciona itens - nova subcategoria
-  app.post('/gravasub', function(request, response) {
-  const data = request.body;
-  allData.push(data);
-  response.json(allData);
-  console.log(allData);
-  // Requiring itens file 
-  const itens = require("./itens/itens.json"); 
-  let obj;
-  for (let i=0; i<itens.length;i++) {
-    for (let j=0; j<itens[i].row.length;j++) {
-      if(j==itens[i].row.length-1)
-      {
-        novoidsub=itens[i].row[j].id+1;
-      }
-    }
-  }
-
-  for(let i=0; i<itens.length; i++) 
-    {        
-      if(itens[i].name==data.categoria){
-          for (let j=0; j<itens[i].row.length;j++) {
-            if(j==itens[i].row.length-1)
-            {
-              novoidsub=itens[i].row[j].id+1;
-              obj={ id: novoidsub, subcategoria: data.subcategoria};
-            }
-          }
-        itens[i].row.push(obj);
-        console.log("sucesso a gravar subcategoria nova");
-      } 
-    }    
-  
-  // STEP 3: Writing to a file 
-  fs.writeFile("./itens/itens.json", JSON.stringify(itens,null,2), function(err){   
-    // Checking for errors 
-    if (err) throw err;  
-    console.log("Escrito com sucesso"); // Success 
-  });
-});
-
-
-//POST adiciona itens - nova categoria e nova subcategoria
+//POST adiciona itens - nova categoria, nova subcategoria
 app.post('/gravaitens', function(request, response) {
   const data = request.body;
   allData.push(data);
@@ -187,6 +153,32 @@ app.post('/gravaitens', function(request, response) {
       }
     }  
 
+    if(existe==1){
+      for (let i=0; i<itens.length;i++) {
+        for (let j=0; j<itens[i].row.length;j++) {
+          if(j==itens[i].row.length-1)
+          {
+            novoidsub=itens[i].row[j].id+1;
+          }
+        }
+      }
+      
+      for(let i=0; i<itens.length; i++) 
+        {        
+          if(itens[i].name==data.categoria){
+              for (let j=0; j<itens[i].row.length;j++) {
+                if(j==itens[i].row.length-1)
+                {
+                  novoidsub=itens[i].row[j].id+1;
+                  obj={ id: novoidsub, subcategoria: data.subcategoria, artigos: []};
+                }
+              }
+            itens[i].row.push(obj);
+            console.log("sucesso a gravar subcategoria nova");
+          } 
+        } 
+    }
+
     if(existe==0){
       // Defining new item
       let x = { 
@@ -195,7 +187,8 @@ app.post('/gravaitens', function(request, response) {
         row: [
           {
             id:novoidsub ,
-            subcategoria:data.subcategoria
+            subcategoria:data.subcategoria, 
+            artigos: []
           }
         ] 
       }; 
@@ -211,6 +204,45 @@ app.post('/gravaitens', function(request, response) {
   });
 });
 
+
+//POST associa artigos a subcategoria e categoria
+app.post('/associa', function(request, response) {
+  const data = request.body;
+  allData.push(data);
+  response.json(allData);
+  let idartigo;
+  // Requiring itens file 
+  const itens = require("./itens/itens.json");
+  const artigos = require("./itens/artigos.json");  
+  
+  for(let i in artigos){
+    if(artigos[i].nome==data.artigo){
+      idartigo=artigos[i].id;
+    }
+  }
+
+  for(let i in itens){
+    for(let j in itens[i].row){
+      if(itens[i].name==data.categoria){
+        if(itens[i].row[j].subcategoria==data.subcategoria){
+          itens[i].row[j].artigos.push(idartigo);
+        }
+      }
+      
+    }
+
+  }
+
+
+  // STEP 3: Writing to a file 
+  fs.writeFile("./itens/itens.json", JSON.stringify(itens,null,2), function(err){   
+    // Checking for errors 
+    if (err) throw err;  
+    console.log("Escrito com sucesso"); // Success 
+  });
+});
+
+
 //POST elimina itens - categoria
 app.post('/eliminacategoria', function(request, response){
   const data = request.body;
@@ -218,17 +250,20 @@ app.post('/eliminacategoria', function(request, response){
   response.json(allData);
   console.log(allData);
   console.log(data.categoria);
-  
+  let quantidadesub;
   // Requiring itens file 
   const itens = require("./itens/itens.json"); 
  
   for(let i=0; i<itens.length; i++) 
     {        
       if(itens[i].name==data.categoria){
-        //elimina
-        console.log(itens[i]);
-        itens.splice(i, 1);
-        console.log("sucesso a eliminar categoria"); 
+        for(let j=0; j<itens[i].row.length; j++){
+          if(itens[i].row.length<=1){
+            //elimina
+            itens.splice(i, 1);
+            console.log("sucesso a eliminar categoria"); 
+          }
+        }
       } 
     }     
   // STEP 3: Writing to a file 
@@ -275,12 +310,12 @@ app.post('/novapassword', function(request, response){
   response.json(data);
   //console.log(data);  
   // Requiring users/admin file 
-  const users = require("./bd/useradmin.json"); 
+  const users = require("./bd/admin.json"); 
   users[0].password=data.password;
   // Requiring users/admin file 
   console.log(users); 
   //Writing to a file 
-  fs.writeFile("./bd/useradmin.json", JSON.stringify(users,null,2), err => { 
+  fs.writeFile("./bd/admin.json", JSON.stringify(users,null,2), err => { 
   // Checking for errors 
   if (err) throw err;  
   console.log("Escrito com sucesso"); // Success 
@@ -310,3 +345,43 @@ app.post('/novapassword', function(request, response){
     console.log("Escrito com sucesso"); // Success 
   });*/
  
+  /*//POST adiciona itens - nova subcategoria
+  app.post('/gravasub', function(request, response) {
+    const data = request.body;
+    allData.push(data);
+    response.json(allData);
+    console.log(allData);
+    // Requiring itens file 
+    const itens = require("./itens/itens.json"); 
+    let obj;
+    for (let i=0; i<itens.length;i++) {
+      for (let j=0; j<itens[i].row.length;j++) {
+        if(j==itens[i].row.length-1)
+        {
+          novoidsub=itens[i].row[j].id+1;
+        }
+      }
+    }
+  
+    for(let i=0; i<itens.length; i++) 
+      {        
+        if(itens[i].name==data.categoria){
+            for (let j=0; j<itens[i].row.length;j++) {
+              if(j==itens[i].row.length-1)
+              {
+                novoidsub=itens[i].row[j].id+1;
+                obj={ id: novoidsub, subcategoria: data.subcategoria};
+              }
+            }
+          itens[i].row.push(obj);
+          console.log("sucesso a gravar subcategoria nova");
+        } 
+      }    
+    
+    // STEP 3: Writing to a file 
+    fs.writeFile("./itens/itens.json", JSON.stringify(itens,null,2), function(err){   
+      // Checking for errors 
+      if (err) throw err;  
+      console.log("Escrito com sucesso"); // Success 
+    });
+  });*/

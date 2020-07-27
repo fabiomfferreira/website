@@ -5,9 +5,7 @@
     "nome": "Artigo1",
     "preco": 1.5,
     "sem_desconto": 2,
-    "info": "agua mineral natural",
-    "catid": 1,
-    "subid": 1
+    "info": "agua mineral natural"
   },
   {
     "id": 2,

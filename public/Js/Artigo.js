@@ -9,15 +9,13 @@ export default class Artigo{
     subid;
     card;
 
-    constructor(id, img,nome,preco,info,sem_desconto,catid,subid) {
+    constructor(id, img,nome,preco,info,sem_desconto) {
         this.id = id;
         this.nome = nome;
         this.preco = preco;
         this.img = img;
         this.info=info;
         this.sem_desconto=sem_desconto;
-        this.catid=catid;
-        this.subid=subid;
         this.createCard();
     }
 

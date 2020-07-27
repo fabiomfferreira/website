@@ -5,11 +5,18 @@
     "row": [
       {
         "id": 1,
-        "subcategoria": "Águas"
+        "subcategoria": "Águas",
+        "artigos": [
+          1,
+          4
+        ]
       },
       {
         "id": 2,
-        "subcategoria": "Refrigerantes"
+        "subcategoria": "Refrigerantes",
+        "artigos": [
+          6
+        ]
       }
     ]
   },
@@ -19,11 +26,13 @@
     "row": [
       {
         "id": 1,
-        "subcategoria": "Arroz"
+        "subcategoria": "Arroz",
+        "artigos": []
       },
       {
         "id": 2,
-        "subcategoria": "Massa"
+        "subcategoria": "Massa",
+        "artigos": []
       }
     ]
   },
@@ -33,11 +42,13 @@
     "row": [
       {
         "id": 1,
-        "subcategoria": "Pizza"
+        "subcategoria": "Pizza",
+        "artigos": []
       },
       {
         "id": 2,
-        "subcategoria": "Lasanha"
+        "subcategoria": "Lasanha",
+        "artigos": []
       }
     ]
   }

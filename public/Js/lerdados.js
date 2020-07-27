@@ -2,6 +2,7 @@ import Artigo from './artigo.js';
 
 //Menu itens categoria/subcategoria
 let categorias;
+let artigos;
 (() => {
     fetch('/itens.json')
         .then(resp => resp.json())
@@ -48,9 +49,12 @@ let categorias;
               element.row.forEach(sub => {
                 var subcategoria = document.createElement('a');
                 subcategoria.text = sub.subcategoria;
+                subcategoria.setAttribute('id', sub.subcategoria);
+                subcategoria.setAttribute("onclick","valid("+(subcategoria.id)+")");
                 // LINK para a subcategoria
                 subcategoria.setAttribute("href","/itens/"+sub.subcategoria);              
                 subcategoria.classList = "dropdown-item text-left";
+                //subcategoria.addEventListener("click", carregaSub(this), false);
                 collapse_card.append(subcategoria);
               })
          
@@ -65,16 +69,15 @@ let categorias;
         .catch(e => console.error(e));
 })();
 
-//artigos
-let artigos;
 
+//mostrar artigos
 (() => {
     fetch('/artigos.json')
         .then(resp => resp.json())
         .then(data => {
             artigos = data;
             data.forEach(element => {
-                let art=new Artigo(element.id,element.img,element.nome,element.preco,element.info,element.sem_desconto,element.catid,element.subid);
+                let art=new Artigo(element.id,element.img,element.nome,element.preco,element.info,element.sem_desconto);
                 let  container= document.getElementById('artigos-container')
                 let col =document.createElement('div');
                 col.classList = 'col-lg-2 mb-5';
@@ -86,6 +89,7 @@ let artigos;
     .catch(e => console.error(e));    
 })();
 
+//mostrar artigos em promoção
 let maximo=6;
 let i=0;
 (() => {

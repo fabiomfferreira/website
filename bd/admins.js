@@ -1,4 +1,4 @@
-const records = require("./useradmin");
+const records = require("./admin");
 
 exports.findById = function(id, cb) {
   process.nextTick(function() {

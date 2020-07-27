@@ -1,1 +1,1 @@
-exports.users = require('./users');
+exports.admins = require('./admins');

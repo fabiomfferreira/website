@@ -12,9 +12,11 @@ let listSub=document.getElementById('veSubcategoria');
                 listCat.appendChild(info);
 
                 element.row.forEach(sub => {
-                    info= document.createElement('li');
-                    info.appendChild(document.createTextNode(sub.subcategoria));
-                    listSub.appendChild(info);
+                    info2= document.createElement('ul');
+                    let subli=document.createElement('li')
+                    subli.appendChild(document.createTextNode(sub.subcategoria));
+                    info2.appendChild(subli);
+                    listCat.appendChild(info2);
                 });
             });
         })
