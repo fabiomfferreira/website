@@ -1,15 +1,16 @@
+//admin adicionar - le dados
 let cat;
 
-const Select = (id, class_name) => {
+let Select = (id, class_name) => {
     return $('<select>').attr("id", id).addClass(class_name);
 }
 
-const appendDrop = (id, text, value) => {
+let appendDrop = (id, text, value) => {
     $('<option>').val(value).text(text).appendTo(id);
 };
 
 //mostra categorias e respetivas subcategorias
-(() => {
+
     fetch('/itens.json')
         .then(resp => resp.json())
         .then(data => {
@@ -33,7 +34,7 @@ const appendDrop = (id, text, value) => {
             });
         })
         .catch(e => console.error(e));
-})();
+
 
 
 const appendArtigo = (id, text, value) => {
@@ -41,7 +42,7 @@ const appendArtigo = (id, text, value) => {
 };
 
 //mostra artigos
-(() => {
+
     fetch('/artigos.json')
         .then(resp => resp.json())
         .then(data => {
@@ -51,4 +52,3 @@ const appendArtigo = (id, text, value) => {
             });
         })
         .catch(e => console.error(e));
-})();

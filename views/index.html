@@ -38,10 +38,11 @@
                 </a>
             </li>
           <li class="nav-item active">
-            <a class="nav-link" href="#inicio">INÍCIO</a>
+            <a class="nav-link" href="/">INÍCIO</a>
           </li>
           <li class="nav-item">
-            <li class="nav-item dropdown">
+            <a class="nav-link" href="/itens">ITENS</a>
+            <!--<li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown_artigos" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     ITENS
                 </a>
@@ -52,8 +53,7 @@
                         </form>
                     </div>
                 </div>
-            </li> 
-          
+            </li>-->          
         </li>
           <li class="nav-item">
             <a class="nav-link" href="#carrinho"><button class="btn fa fa-shopping-cart btn-light" data-toggle="modal" data-target="#carrinhoModal">      <span class="total-count font-weight-bold" style="font-size: 19px;"></span></button></a>
@@ -120,7 +120,7 @@
                         <h4 class="modal-title">Carrinho</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
-                          </button>
+                        </button>
                     </div>
                     <!-- Modal body -->
                     <div class="modal-body" id="carrinho-body">
@@ -134,20 +134,19 @@
                                 <span class="step btn"><i class="fas fa-check"></i></span>
                             </div>
                             <!-- One "tab" for each step in the form: -->
-                            <div class="tab">
-                                
-                                    
+                            <div class="tab">                                   
                                         <table class="cart-table-title table">
 
                                         </table>
                                         <table class="show-cart table">
-          
-                                        </table>                                    
+        
+                                        </table>
                                     <div class="cart-total">
                                         <br><br>
                                         <hr>
                                         <strong class="cart-total-title">Preço Total: <span class="total-cart"></span>€</strong>
-                                    </div>                                
+                                    </div>
+                                
                             </div>
                             <div class="tab" id="mpagamento">
                                 <strong>MÉTODOS DE PAGAMENTO:</strong>
@@ -155,7 +154,8 @@
                             </div>
                             <div class="tab">
                                 <strong>EMAIL:</strong>
-                                <p><input placeholder="Email..." oninput="this.className = ''" name="email"></p>
+                                <form><input id="email" placeholder="Email..." oninput="this.className = ''" name="email" type="email" required><!--<input class="btn" type="submit">--></form>
+                                <input type="submit">
                             </div>
                             <div class="tab" id="confirmar">
                                 <div class="spinner-border text-warning"></div>
@@ -177,7 +177,7 @@
         <!-- Fim modal carrinho -->
 
   <!-- Footer -->
-  <footer class="py-5">
+  <footer class="py-4 footer">
     <div class="container-ft">
       <p class="m-0 text-center text-black">Copyright &copy; Coimfor 2020
         <a href="#">Privacy Policy</a>
@@ -192,7 +192,7 @@
   <script src="/Js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-  <script src="/Js/lerdados.js" type="module"></script>
+  <script src="/Js/promo.js" type="module"></script>
   <script src="/Js/index.js" ></script>
   <script src="/Js/carrinho.js"></script>
 </body>

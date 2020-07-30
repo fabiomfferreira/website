@@ -2,18 +2,19 @@
   {
     "id": 1,
     "img": "/Assets/agua.jpg",
-    "nome": "Artigo1",
+    "nome": "Mineral Natural 1,5L",
     "preco": 1.5,
     "sem_desconto": 2,
-    "info": "agua mineral natural"
+    "info": "agua mineral natural 1,5L",
+    "extra": "nenhum"
   },
   {
     "id": 2,
     "img": "/Assets/agua_alcafaz.jpg",
-    "nome": "Artigo2",
+    "nome": "Alcafaz 1,5L",
     "preco": 0.5,
     "sem_desconto": 1,
-    "info": "agua alcafaz"
+    "info": "agua alcafaz 1,5L"
   },
   {
     "id": 3,
@@ -26,7 +27,7 @@
   {
     "id": 4,
     "img": "/Assets/agua_fastio.jpg",
-    "nome": "Artigo4",
+    "nome": "Fastio 1,5L",
     "preco": 1,
     "sem_desconto": null,
     "info": "agua fastio"
@@ -34,7 +35,7 @@
   {
     "id": 5,
     "img": "/Assets/luso_garrafao.jpg",
-    "nome": "Artigo5",
+    "nome": "Luso 5L",
     "preco": 1.5,
     "sem_desconto": 1.6,
     "info": "agua luso garrafão"
@@ -42,7 +43,7 @@
   {
     "id": 6,
     "img": "/Assets/luso_vidro.jpg",
-    "nome": "Artigo6",
+    "nome": "Luso Vidro 1,5L",
     "preco": 1.5,
     "sem_desconto": 2,
     "info": "agua luso garrafa de vidro"
@@ -50,7 +51,7 @@
   {
     "id": 7,
     "img": "/Assets/luso_33cl.png",
-    "nome": "Artigo7",
+    "nome": "Luso 33cl",
     "preco": 1.5,
     "sem_desconto": 1.75,
     "info": "agua luso garrafa 33cl"

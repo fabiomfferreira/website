@@ -77,7 +77,7 @@
                                         <h3 class="text-center my-4">Criar Categoria e Subcategoria</h3>
                                     </div>
                                     <div class="card-body">
-                                        <form id="formaddcategoria">
+                                        <div id="formaddcategoria">
                                             <div class="form-group">
                                                 <label class="small mb-2" for="inputCat">Categoria</label>
                                                 <input class="form-control py-4" id="inputCat"
@@ -88,9 +88,9 @@
                                                     placeholder="Introduza a nova subcategoria..." required>
                                             </div>
                                             <div class="form-group mt-3 mb-0">
-                                                <button class="btn btn-submit"  id="btnaddCategoria" >Adicionar</button>
+                                                <button class="btn btn-submit"  id="btnaddCategoria" onClick="window.location.reload();">Adicionar</button>
                                             </div>
-                                        </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -110,11 +110,11 @@
                                                 <div id="optionList"></div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="small mb-2" for="inputSubcategoria">Artigos</label>
+                                                <label class="small mb-2" for="inputSubcategoria">Artigo</label>
                                                 <select class="form-control" id="artigosList"></select>
                                             </div>
                                             <div class="form-group mt-3 mb-0">
-                                                <button type="submit" class="btn btn-submit" id="btnArtigo">Associar</button>
+                                                <button type="submit" class="btn btn-submit" id="btnArtigo" onClick="window.location.reload();">Associar</button>
                                             </div>
                                         </div>
                                     </div>

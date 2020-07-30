@@ -1,7 +1,7 @@
-//mostra categorias e respetivas subcategorias 
+// mostra/lista categorias e respetivas subcategorias 
 let listCat=document.getElementById('veCategoria');
 let listSub=document.getElementById('veSubcategoria');
-(() => {
+
     fetch('/itens.json')
         .then(resp => resp.json())
         .then(data => {
@@ -21,4 +21,3 @@ let listSub=document.getElementById('veSubcategoria');
             });
         })
     .catch(e => console.error(e));    
-})();

@@ -55,3 +55,32 @@ let categoria, subcategoria;
         const json = await response.json();
         console.log(json);
       });
+
+      const buttonremove=document.getElementById('btnremoveArtigo');
+      buttonremove.addEventListener('click', async event => {
+        let selectsub = document.getElementById('categoriaList');
+        let id=document.getElementById('categoriaList').value;
+	      subcategoria = selectsub.options[selectsub.selectedIndex].text;
+        let artigo = document.getElementById(id);
+        artigo = artigo.options[artigo.selectedIndex].text;
+        console.log(subcategoria);
+        console.log(id);
+        console.log(artigo);
+        const data = {subcategoria,artigo};
+        console.log(data);
+        const options = {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        };
+        const response = await fetch('/desassociaartigo', options);
+        if(response){
+          console.log("gravado com sucesso");
+        }else{
+          console.log("erro");
+        }
+        const json = await response.json();
+        console.log(json);
+      });

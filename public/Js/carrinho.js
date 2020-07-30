@@ -5,8 +5,8 @@ var shoppingCart = (function() {
     cart = [];
     
     // Constructor
-    function Item(name, price, count) {
-      this.name = name;
+    function Item(nome, price, count) {
+      this.nome = nome;
       this.price = price;
       this.count = count;
     }
@@ -19,6 +19,7 @@ var shoppingCart = (function() {
       // carrega o carrinho -  session storage
     function loadCart() {
       cart = JSON.parse(sessionStorage.getItem('shoppingCart'));
+     
     }
     if (sessionStorage.getItem("shoppingCart") != null) {
       loadCart();
@@ -31,31 +32,31 @@ var shoppingCart = (function() {
     var obj = {};
     
     // Adiciona ao carrinho função
-    obj.addItemToCart = function(name, price, count) {
+    obj.addItemToCart = function(nome, price, count) {
       for(var item in cart) {
-        if(cart[item].name === name) {
+        if(cart[item].nome === nome) {
           cart[item].count ++;
           saveCart();
           return;
         }
       }
-      var item = new Item(name, price, count);
+      var item = new Item(nome, price, count);
       cart.push(item);
       saveCart();
     }
     // Conta a quantidade do artigo no carinho função
-    obj.setCountForItem = function(name, count) {
+    obj.setCountForItem = function(nome, count) {
       for(var i in cart) {
-        if (cart[i].name === name) {
+        if (cart[i].nome === nome) {
           cart[i].count = count;
           break;
         }
       }
     };
     // Remove artigo do carrinho função
-    obj.removeItemFromCart = function(name) {
+    obj.removeItemFromCart = function(nome) {
         for(var item in cart) {
-          if(cart[item].name === name) {
+          if(cart[item].nome === nome) {
             cart[item].count --;
             if(cart[item].count === 0) {
               cart.splice(item, 1);
@@ -67,9 +68,9 @@ var shoppingCart = (function() {
     }
   
     // Remove todo o mesmo artigo do carrinho
-    obj.removeItemFromCartAll = function(name) {
+    obj.removeItemFromCartAll = function(nome) {
       for(var item in cart) {
-        if(cart[item].name === name) {
+        if(cart[item].nome === nome) {
           cart.splice(item, 1);
           break;
         }
@@ -137,11 +138,11 @@ var shoppingCart = (function() {
   // ***************************************** 
   // Add item
   function addToCart(nome,preco) {
-    var name = nome
+    var nome = nome
     var price = Number(preco);
-    shoppingCart.addItemToCart(name, price, 1);
+    shoppingCart.addItemToCart(nome, price, 1);
     displayCart();
-    console.log(name,price)
+    console.log(nome,price)
   };
   
   // Clear items
@@ -165,16 +166,16 @@ var shoppingCart = (function() {
 
     for(var i in cartArray) {
         output+="<tr>"
-        + "<td>"  + cartArray[i].name + "</td>" 
+        + "<td>"  + cartArray[i].nome + "</td>" 
         + "<td>(" + cartArray[i].price + "€)</td>"
-        + "<td><div class='input-group'><button class='minus-item input-group-addon btn btn-primary' data-name='"+cartArray[i].name+"'>-</button>"
-        + "<input type='number' class='item-count  form-quantidade' data-name='"+cartArray[i].name+"' value='" + cartArray[i].count + "'>"
-        + "<button class='plus-item btn btn-primary input-group-addon' data-name='"+cartArray[i].name+"'>+</button></div></td>"
+        + "<td><div class='input-group'><button class='minus-item input-group-addon btn btn-primary' data-nome='"+cartArray[i].nome+"'>-</button>"
+        + "<input type='number' class='item-count  form-quantidade' data-nome='"+cartArray[i].nome+"' value='" + cartArray[i].count + "'>"
+        + "<button class='plus-item btn btn-primary input-group-addon' data-nome='"+cartArray[i].nome+"'>+</button></div></td>"
         + "<td>" + cartArray[i].total + "€</td>"
         + " = " 
-        + "<td><button class='delete-item btn btn-danger btn-delete' data-name='"+cartArray[i].name+"'>X</button></td>"
+        + "<td><button class='delete-item btn btn-danger btn-delete' data-nome='"+cartArray[i].nome+"'>X</button></td>"
         +  "</tr>";
-        console.log(cartArray[i].name);
+        console.log(cartArray[i].nome);
     }
     $('.cart-table-title').html(title);
   
@@ -185,32 +186,32 @@ var shoppingCart = (function() {
   
   // Delete item button
   $('.show-cart').on("click", ".delete-item", function(event) {
-    let name = $(this).data('name')
-    shoppingCart.removeItemFromCartAll(name);
+    let nome = $(this).data('nome')
+    shoppingCart.removeItemFromCartAll(nome);
     displayCart();
   })
   
   
   // -1
   $('.show-cart').on("click", ".minus-item", function(event) {
-    var name = $(this).data('name')
-    console.log($(this).data('name'));
-    console.log(name);
-    shoppingCart.removeItemFromCart(name);
+    var nome = $(this).data('nome')
+    console.log($(this).data('nome'));
+    console.log(nome);
+    shoppingCart.removeItemFromCart(nome);
     displayCart();
   })
   // +1
   $('.show-cart').on("click", ".plus-item", function(event) {
-    var name = $(this).data('name')
-    shoppingCart.addItemToCart(name);
+    var nome = $(this).data('nome')
+    shoppingCart.addItemToCart(nome);
     displayCart();
   })
   
   // Item count input
   $('.show-cart').on("change", ".item-count", function(event) {
-     var name = $(this).data('name');
+     var nome = $(this).data('nome');
      var count = Number($(this).val());
-    shoppingCart.setCountForItem(name, count);
+    shoppingCart.setCountForItem(nome, count);
     displayCart();
   });
   
@@ -236,6 +237,9 @@ function showTab(n) {
         document.getElementById("nextBtn").innerHTML = "Submeter";
         document.getElementById("nextBtn").onclick=function () {
             Submetido(cart);
+            //location.reload();
+            shoppingCart.clearCart();
+            displayCart();
         };
     } else {
         document.getElementById("nextBtn").innerHTML = "Seguinte";
@@ -268,10 +272,12 @@ function validateForm() {
     var x, y, i, valid = true;
     x = document.getElementsByClassName("tab");
     y = x[currentTab].getElementsByTagName("input");
+    //email=document.getElementById("email");
     // A loop that checks every input field in the current tab:
     for (i = 0; i < y.length; i++) {
         // If a field is empty...
-        if (y[i].value == "") {
+        console.log(email.value);
+        if (y[i].value == "" /*&& email.value!="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"*/) {
             // add an "invalid" class to the field:
             y[i].className += " invalid";
             // and set the current valid status to false

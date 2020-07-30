@@ -4,9 +4,8 @@ export default class Artigo{
     preco;
     img;
     info;
+    //extra;
     sem_desconto;
-    catid;
-    subid;
     card;
 
     constructor(id, img,nome,preco,info,sem_desconto) {
@@ -15,6 +14,7 @@ export default class Artigo{
         this.preco = preco;
         this.img = img;
         this.info=info;
+        //this.extra=extra;
         this.sem_desconto=sem_desconto;
         this.createCard();
     }
@@ -24,19 +24,19 @@ export default class Artigo{
             this.card = `<div class="card h-100">
                 <img class="card-img-top  artigo_img" src="${this.img}" alt="">
                 <div class="card-body">
-                <a href="#" data-toggle="tooltip" title="Informações"> <button type="button" class="btn btn-infos fas fa-plus-circle openmodal" data-toggle="modal" data-target="#modal${this.id}"></button></a>
-                    <h4 class="card-title">${this.nome}</h4>
+                <a href="#" data-toggle="tooltip" title="Informações"><button type="button" class="btn btn-info btn-sm mb-3" data-toggle="modal" data-target="#modalinfo${this.id}">Informações</button></a>
+                    <p class="card-title">${this.nome}</p>
                     <div class="card-price">
                         <span class="card-price-new">${this.preco}€</span> <del class="card-price-old"> ${this.sem_desconto}€</del>
                     </div>
-                    <button type="button" class="btn btn-danger btn-extra" data-toggle="modal" data-target="#extrasModal">Extras</button>
+                    <button type="button" class="btn btn-danger btn-extra btn-sm" data-toggle="modal" data-target="#extrasModal">Extras</button>
                 </div>
                 <div class="card-footer">
-                    <button data-name="${this.nome}" data-price="${this.preco}" class= "btn btn-add btn-lg add-to-cart" onclick="addToCart('${this.nome}','${this.preco}')"><i class="fas fa-cart-plus"></i></button>
+                    <button data-id="${this.id}" data-nome="${this.nome}" data-price="${this.preco}" class= "btn btn-add btn-lg add-to-cart" onclick="addToCart('${this.nome}','${this.preco}')"><i class="fas fa-cart-plus"></i></button>
                 </div>
                 </div>
                 <!-- Modal para as informaçoes -->
-                <div class="modal fade" id="modal${this.id}">
+                <div class="modal fade" id="modalinfo${this.id}">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <!-- Modal Header -->
@@ -58,19 +58,19 @@ export default class Artigo{
             this.card = `<div class="card h-100">
                 <img class="card-img-top  artigo_img" src="${this.img}" alt="">
                 <div class="card-body">
-                <a href="#" data-toggle="tooltip" title="Informações"> <button type="button" class="btn btn-infos fas fa-plus-circle openmodal" data-toggle="modal" data-target="#modal${this.id}"></button></a>
-                    <h4 class="card-title">${this.nome}</h4>
+                <a href="#" data-toggle="tooltip" title="Informações"><button type="button" class="btn btn-info btn-sm mb-3" data-toggle="modal" data-target="#modalinfo${this.id}">Informações</button></a>
+                    <p class="card-title">${this.nome}</p>
                     <div class="card-price">
                         <span class="card-price-new">${this.preco}€</span> <del class="card-price-old"></del>
                     </div>
-                    <button type="button" class="btn btn-danger btn-extra" data-toggle="modal" data-target="#extrasModal">Extras</button>
+                    <button type="button" class="btn btn-danger btn-extra btn-sm" data-toggle="modal" data-target="#extrasModal">Extras</button>
                 </div>
                 <div class="card-footer">
-                    <button data-name="${this.nome}" data-price="${this.preco}" class= "btn btn-add btn-lg add-to-cart" onclick="addToCart('${this.nome}','${this.preco}')"><i class="fas fa-cart-plus"></i></button>
+                    <button data-id="${this.id}" data-nome="${this.nome}" data-price="${this.preco}" class= "btn btn-add btn-lg add-to-cart" onclick="addToCart('${this.nome}','${this.preco}')"><i class="fas fa-cart-plus"></i></button>
                 </div>
                 </div>
                 <!-- Modal para as informaçoes -->
-                <div class="modal fade" id="modal${this.id}">
+                <div class="modal fade" id="modalinfo${this.id}">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <!-- Modal Header -->

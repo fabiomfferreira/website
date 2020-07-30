@@ -39,9 +39,10 @@
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="/">INÍCIO</a>
-              </li>
-              <li class="nav-item">
-                <li class="nav-item dropdown">
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/itens">ITENS</a>
+                <!--<li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown_artigos" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         ITENS
                     </a>
@@ -51,9 +52,8 @@
                                 
                             </form>
                     </div>
-                    </div>
-                </li> 
-              
+                    </div
+                </li> -->              
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#carrinho"><button class="btn fa fa-shopping-cart btn-light" data-toggle="modal" data-target="#carrinhoModal">   <span class="total-count font-weight-bold" style="font-size: 19px;"></span></button></a>
@@ -63,119 +63,123 @@
 </nav>
 
 <!-- Page Content -->
-<div class="container">
-    <div class="col-lg-12">
-        <div id="artigos" class="element element-2">
-            <br>
-            <h1 id="h1">Itens</h1>
-            <br><br><br>
-            <div class="row" id="artigos-container">
-               
-
-
-            </div>
-            <div class="row" id="exemplo">
-               
-
-
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 col-sm-2">
+            <br><br>
+            <div class="accordion" id="categorias-accordion">
+                                    
             </div>
         </div>
+        
+        <div class="col-12 col-sm-10">
+            <div id="artigos" class="element element-2">
+                <br>
+                <h1 id="titulo-promo">Promoções</h1>             
+                <div class="row" id="promocoes">
 
-        <!-- Modal para os extras -->
-        <div class="modal fade" id="extrasModal">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title">Escolha os extras do artigo</h4>
-                    </div>
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="extraCheck">
-                            <label class="form-check-label" for="extraCheck">Tamanho Familiar</label>
+                </div>
+                <h1 id="titulo-categoria"></h1>
+                <div class="row" id="artigos-container">
+                
+                </div>
+                <a href="javascript:prevPage()" id="btn_prev">Prev</a>
+                <a href="javascript:nextPage()" id="btn_next">Next</a>
+            </div>
+
+            <!-- Modal para os extras -->
+            <div class="modal fade" id="extrasModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Escolha os extras do artigo</h4>
+                        </div>
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="extraCheck">
+                                <label class="form-check-label" for="extraCheck">Tamanho Familiar</label>
+                            </div>
+                        </div>
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">Fechar</button>
                         </div>
                     </div>
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">Fechar</button>
-                    </div>
                 </div>
             </div>
-        </div>
 
 
-        <!-- Modal para o carrinho -->
-        <div class="modal fade" id="carrinhoModal">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <!-- Modal header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title">Carrinho</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                    </div>
-                    <!-- Modal body -->
-                    <div class="modal-body" id="carrinho-body">
-                        <!-- AQUI COMEÇA O HTML DO STEPPER -->
-                        <form id="regForm">
-                            <!-- Circles which indicates the steps of the form: -->
-                            <div class="steps" style="text-align:center;">
-                                <span class="step btn"><i class="fa fa-shopping-cart"></i></span>
-                                <span class="step btn"><i class="fas fa-money-check-alt"></i></span>
-                                <span class="step btn"><i class="fa fa-user"></i></span>
-                                <span class="step btn"><i class="fas fa-check"></i></span>
-                            </div>
-                            <!-- One "tab" for each step in the form: -->
-                            <div class="tab">
-                                
+            <!-- Modal para o carrinho -->
+            <div class="modal fade" id="carrinhoModal">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <!-- Modal header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Carrinho</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <!-- Modal body -->
+                        <div class="modal-body" id="carrinho-body">
+                            <!-- AQUI COMEÇA O HTML DO STEPPER -->
+                            <form id="regForm">
+                                <!-- Circles which indicates the steps of the form: -->
+                                <div class="steps" style="text-align:center;">
+                                    <span class="step btn"><i class="fa fa-shopping-cart"></i></span>
+                                    <span class="step btn"><i class="fas fa-money-check-alt"></i></span>
+                                    <span class="step btn"><i class="fa fa-user"></i></span>
+                                    <span class="step btn"><i class="fas fa-check"></i></span>
+                                </div>
+                                <!-- One "tab" for each step in the form: -->
+                                <div class="tab">                                   
+                                            <table class="cart-table-title table">
+
+                                            </table>
+                                            <table class="show-cart table">
+            
+                                            </table>
+                                        <div class="cart-total">
+                                            <br><br>
+                                            <hr>
+                                            <strong class="cart-total-title">Preço Total: <span class="total-cart"></span>€</strong>
+                                        </div>
                                     
-                                        <table class="cart-table-title table">
+                                </div>
+                                <div class="tab" id="mpagamento">
+                                    <strong>MÉTODOS DE PAGAMENTO:</strong>
 
-                                        </table>
-                                        <table class="show-cart table">
-          
-                                        </table>
-                                    <div class="cart-total">
-                                        <br><br>
-                                        <hr>
-                                        <strong class="cart-total-title">Preço Total: <span class="total-cart"></span>€</strong>
-                                    </div>
-                                
-                            </div>
-                            <div class="tab" id="mpagamento">
-                                <strong>MÉTODOS DE PAGAMENTO:</strong>
-
-                            </div>
-                            <div class="tab">
-                                <strong>EMAIL:</strong>
-                                <p><input placeholder="Email..." oninput="this.className = ''" name="email"></p>
-                            </div>
-                            <div class="tab" id="confirmar">
-                                <div class="spinner-border text-warning"></div>
-                                <br>
-                                <strong>DESEJA CONFIRMAR A COMPRA?</strong>
-                            </div>
-                        </form>
-                    </div>
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button class="clear-cart btn btn-danger btn-lg" type="button" id="clearBtn">Limpar</button>
-                        <button  class="btn btn-danger btn-lg" type="button" data-dismiss="modal">Fechar</button>
-                        <button class="btn btn-primary btn-lg" type="button" id="prevBtn" onclick="nextPrev(-1)">Anterior</button>
-                        <button class="btn btn-success btn-lg" type="button" id="nextBtn" onclick="nextPrev(1)">Seguinte</button>
+                                </div>
+                                <div class="tab" >
+                                    <strong>EMAIL:</strong>
+                                    <form><input id="email" placeholder="Email..." oninput="this.className = ''" name="email" type="email" required><!--<input class="btn" type="submit">--></form>
+                                </div>
+                                <div class="tab" id="confirmar">
+                                    <div class="spinner-border text-warning"></div>
+                                    <br>
+                                    <strong>DESEJA CONFIRMAR A COMPRA?</strong>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <button class="clear-cart btn btn-danger btn-lg" type="button" id="clearBtn">Limpar</button>
+                            <button  class="btn btn-danger btn-lg" type="button" data-dismiss="modal">Fechar</button>
+                            <button class="btn btn-primary btn-lg" type="button" id="prevBtn" onclick="nextPrev(-1)">Anterior</button>
+                            <button class="btn btn-success btn-lg" type="button" id="nextBtn" onclick="nextPrev(1)">Seguinte</button>
+                        </div>
                     </div>
                 </div>
             </div>
+            <!-- Fim modal carrinho -->
+
+            <!-- /.row -->
+
         </div>
-        <!-- Fim modal carrinho -->
-
-        <!-- /.row -->
-
-    </div>
     <!-- /.col-lg-9 -->
-
+    </div>
 </div>
 <!-- /.row -->
 
@@ -183,7 +187,7 @@
 <!-- /.container -->
 
 <!-- Footer -->
-<footer class="py-5">
+<footer class="py-4 footer">
     <div class="container-ft">
       <p class="m-0 text-center text-black">Copyright &copy; Coimfor 2020
         <a href="#">Privacy Policy</a>
@@ -198,10 +202,11 @@
 <script src="/Js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-<script src="/Js/index.js" type="module" ></script>
-<script src="/Js/lerdados.js" type="module"></script>
+<script src="/Js/index.js"></script>
+<script src="/Js/lerdados.js"></script>
+<script src="/Js/mostraartigos.js" type="module"></script>
+<script src="/Js/promoitens.js" type="module"></script>
 <script src="/Js/carrinho.js"></script>
-<script src="/Js/recebe.js"></script>
 </body>
 
 </html>

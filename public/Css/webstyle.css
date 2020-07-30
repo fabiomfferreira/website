@@ -133,7 +133,7 @@ body {
     margin-bottom: 24px;
 }
 
-.element-2 h1{
+.element-2 #titulo-categoria{
     text-align: center;
 }
 
@@ -206,12 +206,20 @@ body {
     text-align: center;
 }
 
+.card-title{
+    font-size: 17px;
+}
+
 .price-old{
     color: #999;
 }
 
 .fa-plus-circle{
     size: 15px;
+}
+
+.btn-info{
+    margin: 5px;
 }
 
 .card-price{
@@ -226,12 +234,12 @@ body {
 
 .card-price-old{
     color: grey;
-    font-size: 15px;
+    font-size: 17px;
     text-decoration: line-through;
 }
 
 .btn-danger{
-    width: 100px;
+    width: 75px;
 }
 
 .card-footer{
@@ -255,6 +263,14 @@ body {
 
 .modal-content{
     background-color: rgb(252, 250, 247);
+}
+
+#promocoes{
+    margin-top: 25px;
+}
+
+#artigos-container{
+    margin-top: 25px;
 }
 
 /*CART*/
@@ -328,5 +344,9 @@ hr{
 footer{
     background: #ddd;
     position: -webkit-sticky;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
 }
 /*FIM FOOTERS*/
