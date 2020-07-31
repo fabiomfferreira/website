@@ -1,3 +1,4 @@
+//admin - secção remover - le dados
 let categorias;
 
 let createSelect = (id, class_name) => {
@@ -35,22 +36,18 @@ let appendDropDown = (id, text, value) => {
 
 
 //mostra somente categoria
-
     fetch('/itens.json')
         .then(resp => resp.json())
         .then(data => {
             categorias = data;
             data.forEach(element => {
-                //Adicionar options para Select Tag para Submenus     
+                //Adicionar options para Select Tag para Submenu     
                 appendDropDown("#subMenu", element.name, `option${element.id}`);
             });
         })
         .catch(e => console.error(e));
 
-
-
 //mostra subcategorias e respetivos artigos
-
     fetch('/itens.json')
         .then(resp => resp.json())
         .then(data => {
@@ -58,10 +55,10 @@ let appendDropDown = (id, text, value) => {
             data.forEach(element => {
                 element.row.forEach(sub_element => {
                     console.log(sub_element.subcategoria)
-                    //Adicionar options para Select Tag para Submenus     
+                    //Adicionar options para Select Tag   
                     appendDropDown("#categoriaList", sub_element.subcategoria, `option${sub_element.subcategoria}`);
 
-                    //Criar Select Tag para mostrar options para os submenus
+                    //Criar Select Tag para mostrar options 
                     $("#artigoList").append(createSelect(`option${sub_element.subcategoria}`, "hide subOptions"));
                     sub_element.artigos.forEach(artigo => {
                         (() => {
@@ -79,7 +76,7 @@ let appendDropDown = (id, text, value) => {
                     });
                 });
 
-                //Mostrar respetivas options do submenu 
+                //Mostrar respetivas options 
                 $("#categoriaList").change(function() {
                     $(".subOptions").hide();
                     $("#" + $(this).val()).css("display", "block");

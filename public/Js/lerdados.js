@@ -1,5 +1,4 @@
-//Menu itens categoria/subcategoria
-
+//"Menu" itens categoria/subcategoria
     fetch('/itens.json')
         .then(resp => resp.json())
         .then(data => {

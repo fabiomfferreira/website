@@ -1,3 +1,4 @@
+//mostras artigos
 import Artigo from './artigo.js';
 
 $('#btn_prev').hide();
@@ -19,14 +20,11 @@ $('.btn-categoria').on('click', function(event){
 
 
 function getProdutos(categoria) {
-    //var produtos = [];
     let titulo = $('#titulo-categoria');
-    let soma=0;
     fetch('/itens.json').then(resp => resp.json()).then(data => {
         data.forEach(element => {
-            // Procurar em cada "row" do ficheiro itens.json
             element.row.forEach(sub => {
-                // Verificar se a subcategoria do "row" atual é igual ao que tu clicaste (parametro da funçao)
+                // Verifica se a subcategoria do "row" é igual à "categoria"
                 if(sub.subcategoria === categoria){
                     titulo.text(sub.subcategoria);
                     sub.artigos.forEach(artigo => {
@@ -36,12 +34,10 @@ function getProdutos(categoria) {
             })
          })
     }).catch(e => console.error(e));
-
-    //console.log(produtos);
 }
 
 function preencheProduto(produto){
-    // div colocar os produtos
+    //div colocar os produtos
     let container = $('#artigos-container');
     fetch('/artigos.json').then(resp => resp.json()).then(data => {
         data.forEach(artigo => { 

@@ -1,5 +1,4 @@
 import Artigo from './artigo.js';
-
 //mostrar artigos em promoção na pagina principal (index.html)
 let maximo=6;
 let i=0;

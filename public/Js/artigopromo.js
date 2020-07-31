@@ -1,3 +1,4 @@
+//classe Artigo em promoção
 export default class ArtigoPromo{
     id;
     nome;

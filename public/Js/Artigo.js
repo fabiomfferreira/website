@@ -1,3 +1,4 @@
+//classe Artigo
 export default class Artigo{
     id;
     nome;

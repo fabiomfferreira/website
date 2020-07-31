@@ -14,7 +14,7 @@ $('.dropdown-menu a.dropdown-toggle').on('click', function(e) {
     return false;
 });
 
-
+//caroussel index.html - pagina principal
 $('.carousel .carousel-item').each(function(){
     var minPerSlide = 7;
     var next = $(this).next();

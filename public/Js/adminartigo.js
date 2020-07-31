@@ -1,4 +1,4 @@
-//admin adicionar - le dados
+//admin - secção adicionar - le dados
 let cat;
 
 let Select = (id, class_name) => {
@@ -10,7 +10,6 @@ let appendDrop = (id, text, value) => {
 };
 
 //mostra categorias e respetivas subcategorias
-
     fetch('/itens.json')
         .then(resp => resp.json())
         .then(data => {
@@ -36,13 +35,11 @@ let appendDrop = (id, text, value) => {
         .catch(e => console.error(e));
 
 
-
 const appendArtigo = (id, text, value) => {
     $('<option>').val(value).text(text).appendTo(id);
 };
 
 //mostra artigos
-
     fetch('/artigos.json')
         .then(resp => resp.json())
         .then(data => {

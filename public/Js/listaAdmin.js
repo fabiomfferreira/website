@@ -1,4 +1,4 @@
-// mostra/lista categorias e respetivas subcategorias 
+// mostra/lista categorias e respetivas subcategorias - secção vizualizar
 let listCat=document.getElementById('veCategoria');
 let listSub=document.getElementById('veSubcategoria');
 

@@ -13,12 +13,8 @@ app.use(express.json());
 
 const allData = [];
 
-// Configure the local strategy for use by Passport.
-//
-// The local strategy require a `verify` function which receives the credentials
-// (`username` and `password`) submitted by the user.  The function must verify
-// that the password is correct and then invoke `cb` with a user object, which
-// will be set at `req.user` in route handlers after authentication.
+//Configura a "local strategy" a ser usada pelo Passport
+//funcção que recebe (`username` and `password`) submetida pelo admin
 passport.use(new Strategy(
   function(username, password, cb) {
     db.admins.findByUsername(username, function(err, user) {
@@ -29,13 +25,11 @@ passport.use(new Strategy(
     });
   }));
 
-  // Configure Passport authenticated session persistence.
-//
-// In order to restore authentication state across HTTP requests, Passport needs
-// to serialize users into and deserialize users out of the session.  The
-// typical implementation of this is as simple as supplying the user ID when
-// serializing, and querying the user record by ID from the database when
-// deserializing.
+//Configura persistência de sessão de autenticação Passport
+//para restaurar o estado de autenticação nas solicitações HTTP,
+//o Passport precisa serializar usuários e desserializar usuários fora da sessão. 
+//A implementação típica disso é tão simples quanto fornecer o ID do usuário quando
+//serializando e consultando o registro do usuário por ID do banco de dados quando desserialização.
 passport.serializeUser(function(user, cb) {
   cb(null, user.id);
 });
@@ -47,18 +41,16 @@ passport.deserializeUser(function(id, cb) {
   });
 });
 
-// Use application-level middleware for common functionality, including
-// logging, parsing, and session handling.
+//Usa application-level middleware para funcionalidades comuns como registo, análise e manipulação de sessões
 app.use(require('morgan')('combined'));
 app.use(require('body-parser').urlencoded({ extended: true }));
 app.use(require('express-session')({ secret: 'keyboard cat', resave: false, saveUninitialized: false }));
 
-// Initialize Passport and restore authentication state, if any, from the
-// session.
+//Inicialia o Passport e restaura o estado de autenticação
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Define rotas
+//Define rotas
 app.get('/',
   function(req, res){
     res.sendFile(path.join(__dirname, 'views/index.html'));
@@ -116,10 +108,9 @@ app.post('/gravaitens', function(request, response) {
   allData.push(data);
   response.json(allData);
   let novoid,novoidsub=1;
-  // Requiring itens file 
+  //Requere o ficheiro itens.json
   const itens = require("./itens/itens.json"); 
-  
-  //let obj = { subcategoria: data.subcategoria };
+
   let existe=0;  
   
   for(let i=0; i<itens.length; i++) 
@@ -134,6 +125,7 @@ app.post('/gravaitens', function(request, response) {
       }
     }  
 
+    //existe a categoria, então adiciona só a subcategoria
     if(existe==1){
       for (let i=0; i<itens.length;i++) {
         for (let j=0; j<itens[i].row.length;j++) {
@@ -160,8 +152,8 @@ app.post('/gravaitens', function(request, response) {
         } 
     }
 
+    //não existe a categoria, então adiciona categoria e subcategoria
     if(existe==0){
-      // Defining new item
       let x = { 
         id: novoid, 
         name: data.categoria, 
@@ -177,11 +169,10 @@ app.post('/gravaitens', function(request, response) {
       console.log("sucesso a gravar categoria e subcategoria nova");
     }
 
-  // STEP 3: Writing to a file 
+  //Escreve no ficheiro itens.json
   fs.writeFile("./itens/itens.json", JSON.stringify(itens,null,2), function(err){   
-    // Checking for errors 
     if (err) throw err;  
-    console.log("Escrito com sucesso"); // Success 
+    console.log("Escrito com sucesso");
   });
 });
 
@@ -192,16 +183,18 @@ app.post('/associa', function(request, response) {
   allData.push(data);
   response.json(allData);
   let idartigo;
-  // Requiring itens file 
+  //Requere ficheiros itens.json e artigos.json
   const itens = require("./itens/itens.json");
   const artigos = require("./itens/artigos.json");  
   
+  //encontra id do artigo selecionado
   for(let i in artigos){
     if(artigos[i].nome==data.artigo){
       idartigo=artigos[i].id;
     }
   }
 
+  //adiciona o id do artigo nos itens
   for(let i in itens){
     for(let j in itens[i].row){
       if(itens[i].name==data.categoria){
@@ -212,11 +205,10 @@ app.post('/associa', function(request, response) {
     }
   }
 
-  // STEP 3: Writing to a file 
+  //Escreve no ficheiro itens.json 
   fs.writeFile("./itens/itens.json", JSON.stringify(itens,null,2), function(err){   
-    // Checking for errors 
     if (err) throw err;  
-    console.log("Escrito com sucesso"); // Success 
+    console.log("Escrito com sucesso"); 
   });
 });
 
@@ -229,7 +221,7 @@ app.post('/eliminacategoria', function(request, response){
   console.log(allData);
   console.log(data.categoria);
   let quantidadesub;
-  // Requiring itens file 
+  //Requere ficheiro itens.json
   const itens = require("./itens/itens.json"); 
  
   for(let i=0; i<itens.length; i++) 
@@ -244,11 +236,10 @@ app.post('/eliminacategoria', function(request, response){
         }
       } 
     }     
-  // STEP 3: Writing to a file 
+  //Escreve no ficheiro itens.json
   fs.writeFile("./itens/itens.json", JSON.stringify(itens,null,2), err => {   
-    // Checking for errors 
     if (err) throw err;   
-    console.log("Escrito com sucesso"); // Success 
+    console.log("Escrito com sucesso"); 
   });
 });
 
@@ -261,7 +252,7 @@ app.post('/eliminasubcategoria', function(request, response){
   console.log(data.categoria);
   console.log(data.subcategoria);
   
-  // Requiring itens file 
+  //Requere ficheiro itens.json 
   const itens = require("./itens/itens.json");  
   for (let i in itens) {
       for (let j in itens[i].row) {
@@ -275,15 +266,14 @@ app.post('/eliminasubcategoria', function(request, response){
     }
   }   
   
-  // STEP 3: Writing to a file 
-  fs.writeFile("./itens/itens.json", JSON.stringify(itens,null,2), err => {    
-    // Checking for errors 
+  //Escreve no ficheiro itens.json
+  fs.writeFile("./itens/itens.json", JSON.stringify(itens,null,2), err => {     
     if (err) throw err;    
-    console.log("Escrito com sucesso"); // Success 
+    console.log("Escrito com sucesso");
   });
 });
 
-//POST desassocia artigo a subcategoria
+//POST desassocia artigo de subcategoria
 app.post('/desassociaartigo', function(request, response){
   const all=[];
   const data = request.body;
@@ -292,10 +282,11 @@ app.post('/desassociaartigo', function(request, response){
   console.log(data.subcategoria);
   console.log(data.artigo);
   let artigoid;
-  // Requiring itens file 
+  //Requere ficheiros itens.json e artigos.json
   const itens = require("./itens/itens.json");  
   const artigos = require("./itens/artigos.json"); 
   
+  //encontra id do artigo selecionado
   for(let i in artigos){
     if(artigos[i].nome==data.artigo){
       console.log("igual");
@@ -304,25 +295,25 @@ app.post('/desassociaartigo', function(request, response){
     }
   }
 
-for(let i in itens){
-    for(let j in itens[i].row){
-      if(itens[i].row[j].subcategoria==data.subcategoria){
-        console.log(itens[i].row[j].subcategoria);
-        for(let x in itens[i].row[j].artigos){
-          if(itens[i].row[j].artigos[x]==artigoid){
-            console.log(itens[i].row[j].artigos[x]);
-            itens[i].row[j].artigos.splice(x, 1);
+  //desassocia artigo dos itens
+  for(let i in itens){
+      for(let j in itens[i].row){
+        if(itens[i].row[j].subcategoria==data.subcategoria){
+          console.log(itens[i].row[j].subcategoria);
+          for(let x in itens[i].row[j].artigos){
+            if(itens[i].row[j].artigos[x]==artigoid){
+              console.log(itens[i].row[j].artigos[x]);
+              itens[i].row[j].artigos.splice(x, 1);
+            }
           }
         }
       }
     }
-  }
   
-  // STEP 3: Writing to a file 
-  fs.writeFile("./itens/itens.json", JSON.stringify(itens,null,2), err => {    
-    // Checking for errors 
+  //Escreve no ficheiro itens.json
+  fs.writeFile("./itens/itens.json", JSON.stringify(itens,null,2), err => {     
     if (err) throw err;    
-    console.log("Escrito com sucesso"); // Success 
+    console.log("Escrito com sucesso");
   });
 });
 
@@ -330,16 +321,12 @@ for(let i in itens){
 app.post('/novapassword', function(request, response){
   const data = request.body;
   response.json(data);
-  //console.log(data);  
-  // Requiring users/admin file 
-  const users = require("./bd/admin.json"); 
-  users[0].password=data.password;
-  // Requiring users/admin file 
-  console.log(users); 
-  //Writing to a file 
-  fs.writeFile("./bd/admin.json", JSON.stringify(users,null,2), err => { 
-  // Checking for errors 
+  //Requere ficheiro admin.json
+  const admins = require("./bd/admin.json"); 
+  admins[0].password=data.password;
+  //Escreve no ficheiro admin.json
+  fs.writeFile("./bd/admin.json", JSON.stringify(admins,null,2), err => { 
   if (err) throw err;  
-  console.log("Escrito com sucesso"); // Sucesso 
+  console.log("Escrito com sucesso");
   });
 });

@@ -1,10 +1,10 @@
+//CARRINHO
 var shoppingCart = (function() {
-    // =============================
-    // Private methods and propeties
-    // =============================
+
+    // Private metodos e propriedades
     cart = [];
     
-    // Constructor
+    // Construtor
     function Item(nome, price, count) {
       this.nome = nome;
       this.price = price;
@@ -26,12 +26,11 @@ var shoppingCart = (function() {
     }
     
   
-    // =============================
-    // Public methods and propeties
-    // =============================
+    
+    // Public métodos e propriedades
     var obj = {};
     
-    // Adiciona ao carrinho função
+    // Adiciona ao carrinho - função
     obj.addItemToCart = function(nome, price, count) {
       for(var item in cart) {
         if(cart[item].nome === nome) {
@@ -44,7 +43,8 @@ var shoppingCart = (function() {
       cart.push(item);
       saveCart();
     }
-    // Conta a quantidade do artigo no carinho função
+
+    // Conta a quantidade do artigo no carinho - função
     obj.setCountForItem = function(nome, count) {
       for(var i in cart) {
         if (cart[i].nome === nome) {
@@ -53,7 +53,8 @@ var shoppingCart = (function() {
         }
       }
     };
-    // Remove artigo do carrinho função
+
+    // Remove artigo do carrinho - função
     obj.removeItemFromCart = function(nome) {
         for(var item in cart) {
           if(cart[item].nome === nome) {
@@ -93,7 +94,7 @@ var shoppingCart = (function() {
       return totalCount;
     }
   
-    // Total cart função
+    // Total cart - função
     obj.totalCart = function() {
       var totalCart = 0;
       for(var item in cart) {
@@ -132,11 +133,9 @@ var shoppingCart = (function() {
     return obj;
   })();
   
-  
-  // *****************************************
-  // Triggers / Events
-  // ***************************************** 
-  // Add item
+
+  //Triggers / Events  
+  //Adiciona item
   function addToCart(nome,preco) {
     var nome = nome
     var price = Number(preco);
@@ -145,7 +144,7 @@ var shoppingCart = (function() {
     console.log(nome,price)
   };
   
-  // Clear items
+  //Limpa itens
   $('.clear-cart').on("click",function() {
     shoppingCart.clearCart();
     displayCart();
@@ -184,7 +183,7 @@ var shoppingCart = (function() {
     $('.total-count').html(shoppingCart.totalCount());
   }
   
-  // Delete item button
+  //Limpa artigo - button
   $('.show-cart').on("click", ".delete-item", function(event) {
     let nome = $(this).data('nome')
     shoppingCart.removeItemFromCartAll(nome);
@@ -192,7 +191,7 @@ var shoppingCart = (function() {
   })
   
   
-  // -1
+  //Quantidade -1 
   $('.show-cart').on("click", ".minus-item", function(event) {
     var nome = $(this).data('nome')
     console.log($(this).data('nome'));
@@ -200,14 +199,15 @@ var shoppingCart = (function() {
     shoppingCart.removeItemFromCart(nome);
     displayCart();
   })
-  // +1
+
+  //Quantidade +1
   $('.show-cart').on("click", ".plus-item", function(event) {
     var nome = $(this).data('nome')
     shoppingCart.addItemToCart(nome);
     displayCart();
   })
   
-  // Item count input
+  //Item conta
   $('.show-cart').on("change", ".item-count", function(event) {
      var nome = $(this).data('nome');
      var count = Number($(this).val());
@@ -217,6 +217,7 @@ var shoppingCart = (function() {
   
   displayCart();
 
+  
 ///steppers de todos os passos do carrinho
   var currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the current tab

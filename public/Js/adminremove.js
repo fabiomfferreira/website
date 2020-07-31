@@ -1,5 +1,6 @@
 let categoria, subcategoria;
 
+//POST request elimina itens - categoria
       const buttonc = document.getElementById('btnremoveCategoria');
       buttonc.addEventListener('click', async event => {
         let selectcat = document.getElementById('subMenu');
@@ -27,6 +28,7 @@ let categoria, subcategoria;
         console.log(json);
       });
 
+  //POST request elimina itens - subcategoria
       const buttons=document.getElementById('btnremovesubCategoria');
       buttons.addEventListener('click', async event => {
         let selectcat = document.getElementById('subMenuList');

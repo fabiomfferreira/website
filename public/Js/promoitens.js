@@ -1,5 +1,4 @@
 import ArtigoPromo from './artigopromo.js';
-
 //mostrar artigos em promoção (itens.html)
 let maximo=6;
 let i=0;
