@@ -41,7 +41,7 @@ function preencheProduto(produto){
     let container = $('#artigos-container');
     fetch('/artigos.json').then(resp => resp.json()).then(data => {
         data.forEach(artigo => { 
-            let art=new Artigo(artigo.id,artigo.img,artigo.nome,artigo.preco,artigo.info,artigo.sem_desconto);
+            let art=new Artigo(artigo.id,artigo.img,artigo.nome,artigo.preco,artigo.info,artigo.sem_desconto,artigo.extra);
             console.log(art.info);
             if(art.id == produto ){
                 let col =document.createElement('div');
