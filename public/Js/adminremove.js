@@ -58,6 +58,7 @@ let categoria, subcategoria;
         console.log(json);
       });
 
+      //POST request desassocia artigo de subcategoria
       const buttonremove=document.getElementById('btnremoveArtigo');
       buttonremove.addEventListener('click', async event => {
         let selectsub = document.getElementById('categoriaList');

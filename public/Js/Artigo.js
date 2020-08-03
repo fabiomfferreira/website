@@ -7,9 +7,11 @@ export default class Artigo{
     info;
     extra;
     sem_desconto;
+    categoriaid;
+    subcategoriaid;
     card;
 
-    constructor(id, img,nome,preco,info,sem_desconto,extra) {
+    constructor(id, img,nome,preco,info,sem_desconto,extra,categoriaid,subcategoriaid) {
         this.id = id;
         this.nome = nome;
         this.preco = preco;
@@ -17,6 +19,8 @@ export default class Artigo{
         this.info=info;
         this.extra=extra;
         this.sem_desconto=sem_desconto;
+        this.categoriaid=categoriaid;
+        this.subcategoriaid=subcategoriaid;
         this.createCard();
     }
 
@@ -83,7 +87,7 @@ export default class Artigo{
                     <div class="card-price">
                         <span class="card-price-new">${this.preco}€</span> <del class="card-price-old"></del>
                     </div>
-                    <button type="button" class="btn btn-danger btn-extra btn-sm" data-toggle="modal" data-target="#extrasModal">Extras</button>
+                    <button type="button" class="btn btn-danger btn-extra btn-sm" data-toggle="modal" data-target="#extras${this.id}">Extras</button>
                 </div>
                 <div class="card-footer">
                     <button data-id="${this.id}" data-nome="${this.nome}" data-price="${this.preco}" class= "btn btn-add btn-lg add-to-cart" onclick="addToCart('${this.nome}','${this.preco}')"><i class="fas fa-cart-plus"></i></button>

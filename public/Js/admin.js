@@ -36,7 +36,6 @@ const butt = document.getElementById('btnArtigo');
     let selectsub = document.getElementById(id);
     subcategoria = selectsub.options[selectsub.selectedIndex].text;
     let selectartigo = document.getElementById('artigosList');
-    let idart=document.getElementById('artigosList').value; //retirar
     artigo = selectartigo.options[selectartigo.selectedIndex].text;
         
     const data = {categoria,subcategoria,artigo};

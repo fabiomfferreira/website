@@ -143,7 +143,7 @@ app.post('/gravaitens', function(request, response) {
                 if(j==itens[i].row.length-1)
                 {
                   novoidsub=itens[i].row[j].id+1;
-                  obj={ id: novoidsub, subcategoria: data.subcategoria, artigos: []};
+                  obj={ id: novoidsub, subcategoria: data.subcategoria};
                 }
               }
             itens[i].row.push(obj);
@@ -160,8 +160,7 @@ app.post('/gravaitens', function(request, response) {
         row: [
           {
             id:novoidsub ,
-            subcategoria:data.subcategoria, 
-            artigos: []
+            subcategoria:data.subcategoria
           }
         ] 
       }; 
@@ -182,31 +181,34 @@ app.post('/associa', function(request, response) {
   const data = request.body;
   allData.push(data);
   response.json(allData);
-  let idartigo;
+  let idcategoria, idsubcategoria;
   //Requere ficheiros itens.json e artigos.json
   const itens = require("./itens/itens.json");
   const artigos = require("./itens/artigos.json");  
   
-  //encontra id do artigo selecionado
-  for(let i in artigos){
-    if(artigos[i].nome==data.artigo){
-      idartigo=artigos[i].id;
-    }
-  }
-
-  //adiciona o id do artigo nos itens
+  //encontra id da categoria e subcategoria selecionada
   for(let i in itens){
     for(let j in itens[i].row){
       if(itens[i].name==data.categoria){
+        idcategoria=itens[i].id;
+        console.log(idcategoria);
         if(itens[i].row[j].subcategoria==data.subcategoria){
-          itens[i].row[j].artigos.push(idartigo);
+          idsubcategoria=itens[i].row[j].id;
+          console.log(idsubcategoria);
         }
       }     
     }
   }
 
+  //adiciona o id da categoria e subcategoria no respetivo artigo
+  for(let i in artigos){
+    if(artigos[i].nome==data.artigo){
+      artigos[i] = {...artigos[i], categoriaid: idcategoria,subcategoriaid: idsubcategoria};
+    }
+  }
+
   //Escreve no ficheiro itens.json 
-  fs.writeFile("./itens/itens.json", JSON.stringify(itens,null,2), function(err){   
+  fs.writeFile("./itens/artigos.json", JSON.stringify(artigos,null,2), function(err){   
     if (err) throw err;  
     console.log("Escrito com sucesso"); 
   });
@@ -230,9 +232,13 @@ app.post('/eliminacategoria', function(request, response){
         for(let j=0; j<itens[i].row.length; j++){
           if(itens[i].row.length<=1){
             //elimina
+            console.log(itens[i].row.length);
             itens.splice(i, 1);
             console.log("sucesso a eliminar categoria"); 
           }
+        }
+        if(itens[i].row.length==0){
+          itens.splice(i, 1);
         }
       } 
     }     
@@ -258,11 +264,9 @@ app.post('/eliminasubcategoria', function(request, response){
       for (let j in itens[i].row) {
         if(itens[i].name==data.categoria){
           if(itens[i].row[j].subcategoria==data.subcategoria){
-            if(itens[i].row[j].artigos.length<=1){
               z = itens[i].row[j].subcategoria;
               console.log(z);
               itens[i].row.splice(j, 1);
-            }
           }
       }
     }
@@ -284,36 +288,34 @@ app.post('/desassociaartigo', function(request, response){
   console.log(data.subcategoria);
   console.log(data.artigo);
   let artigoid;
+  let idcategoria, idsubcategoria;
   //Requere ficheiros itens.json e artigos.json
   const itens = require("./itens/itens.json");  
   const artigos = require("./itens/artigos.json"); 
   
-  //encontra id do artigo selecionado
-  for(let i in artigos){
-    if(artigos[i].nome==data.artigo){
-      console.log("igual");
-      artigoid=artigos[i].id;
-      console.log(artigoid);
+  //encontra id da subcategoria selecionada e respetivo id da categoria
+  for(let i in itens){
+    for(let j in itens[i].row){
+      if(itens[i].row[j].subcategoria==data.subcategoria){
+        idsubcategoria=itens[i].row[j].id;
+        idcategoria=itens[i].id;
+        console.log(idcategoria);
+        console.log(idsubcategoria);
+      }     
     }
   }
 
-  //desassocia artigo dos itens
-  for(let i in itens){
-      for(let j in itens[i].row){
-        if(itens[i].row[j].subcategoria==data.subcategoria){
-          console.log(itens[i].row[j].subcategoria);
-          for(let x in itens[i].row[j].artigos){
-            if(itens[i].row[j].artigos[x]==artigoid){
-              console.log(itens[i].row[j].artigos[x]);
-              itens[i].row[j].artigos.splice(x, 1);
-            }
-          }
-        }
+  //desassocia artigo dos itens (categoria e subcategoria)
+  for(let i in artigos){
+      if(artigos[i].categoriaid==idcategoria && artigos[i].subcategoriaid==idsubcategoria){
+        console.log(artigos[i]);
+        delete artigos[i].categoriaid;
+        delete artigos[i].subcategoriaid;
       }
     }
   
   //Escreve no ficheiro itens.json
-  fs.writeFile("./itens/itens.json", JSON.stringify(itens,null,2), err => {     
+  fs.writeFile("./itens/artigos.json", JSON.stringify(artigos,null,2), err => {     
     if (err) throw err;    
     console.log("Escrito com sucesso");
   });

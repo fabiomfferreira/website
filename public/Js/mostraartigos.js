@@ -15,11 +15,11 @@ $('.btn-categoria').on('click', function(event){
     $('#artigos-container').empty();
     
     //obtem produtos dessa categoria/subcategoria
-    getProdutos(categoria);
+    getItensIds(categoria);
 });
 
 
-function getProdutos(categoria) {
+function getItensIds(categoria) {
     let titulo = $('#titulo-categoria');
     fetch('/itens.json').then(resp => resp.json()).then(data => {
         data.forEach(element => {
@@ -27,23 +27,21 @@ function getProdutos(categoria) {
                 // Verifica se a subcategoria do "row" é igual à "categoria"
                 if(sub.subcategoria === categoria){
                     titulo.text(sub.subcategoria);
-                    sub.artigos.forEach(artigo => {
-                        preencheProduto(artigo);
-                    })
+                    preencheProduto(element.id,sub.id);
                 }
             })
          })
     }).catch(e => console.error(e));
 }
 
-function preencheProduto(produto){
+function preencheProduto(catid,subid){
     //div colocar os produtos
     let container = $('#artigos-container');
     fetch('/artigos.json').then(resp => resp.json()).then(data => {
         data.forEach(artigo => { 
-            let art=new Artigo(artigo.id,artigo.img,artigo.nome,artigo.preco,artigo.info,artigo.sem_desconto,artigo.extra);
-            console.log(art.info);
-            if(art.id == produto ){
+            let art=new Artigo(artigo.id,artigo.img,artigo.nome,artigo.preco,artigo.info,artigo.sem_desconto,artigo.extra,artigo.categoriaid,artigo.subcategoriaid);
+ 
+            if(art.categoriaid==catid  && art.subcategoriaid==subid){
                 let col =document.createElement('div');
                 col.classList = 'col-lg-2 mb-5';
                 col.innerHTML+=art.card;

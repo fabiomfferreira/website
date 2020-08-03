@@ -60,20 +60,18 @@ let appendDropDown = (id, text, value) => {
 
                     //Criar Select Tag para mostrar options 
                     $("#artigoList").append(createSelect(`option${sub_element.subcategoria}`, "hide subOptions"));
-                    sub_element.artigos.forEach(artigo => {
                         (() => {
                             fetch('/artigos.json')
                                 .then(resp => resp.json())
                                 .then(data => {
-                                    data.forEach(artigojs => {
-                                        if(artigojs.id==artigo){
-                                            appendDropDown(`#option${sub_element.subcategoria}`, artigojs.nome, `option${sub_element.subcategoria}`);
+                                    data.forEach(artigo => {
+                                        if(artigo.categoriaid==element.id && artigo.subcategoriaid==sub_element.id){
+                                            appendDropDown(`#option${sub_element.subcategoria}`, artigo.nome, `option${sub_element.subcategoria}`);
                                         }
                                     });
                                 })
                                 .catch(e => console.error(e));
                         })();
-                    });
                 });
 
                 //Mostrar respetivas options 

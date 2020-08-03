@@ -6,7 +6,9 @@
     "preco": 1.5,
     "sem_desconto": 2,
     "info": "agua mineral natural 1,5L",
-    "extra": "nenhum"
+    "extra": "nenhum",
+    "categoriaid": 1,
+    "subcategoriaid": 1
   },
   {
     "id": 2,
@@ -14,7 +16,10 @@
     "nome": "Alcafaz 1,5L",
     "preco": 0.5,
     "sem_desconto": 1,
-    "info": "agua alcafaz 1,5L"
+    "info": "agua alcafaz 1,5L",
+    "extra": "nenhum",
+    "categoriaid": 1,
+    "subcategoriaid": 1
   },
   {
     "id": 3,
@@ -22,7 +27,10 @@
     "nome": "Evian 1,5L",
     "preco": 1.99,
     "sem_desconto": null,
-    "info": "agua evian"
+    "info": "agua evian",
+    "extra": "nenhum",
+    "categoriaid": 1,
+    "subcategoriaid": 1
   },
   {
     "id": 4,
@@ -30,7 +38,10 @@
     "nome": "Fastio 1,5L",
     "preco": 1,
     "sem_desconto": null,
-    "info": "agua fastio"
+    "info": "agua fastio",
+    "extra": "nenhum",
+    "categoriaid": 1,
+    "subcategoriaid": 1
   },
   {
     "id": 5,
@@ -38,7 +49,10 @@
     "nome": "Luso 5L",
     "preco": 1.5,
     "sem_desconto": 1.6,
-    "info": "agua luso garrafão"
+    "info": "agua luso garrafão",
+    "extra": "nenhum",
+    "categoriaid": 1,
+    "subcategoriaid": 1
   },
   {
     "id": 6,
@@ -46,7 +60,10 @@
     "nome": "Luso Vidro 1,5L",
     "preco": 1.5,
     "sem_desconto": 2,
-    "info": "agua luso garrafa de vidro"
+    "info": "agua luso garrafa de vidro",
+    "extra": "nenhum",
+    "categoriaid": 1,
+    "subcategoriaid": 1
   },
   {
     "id": 7,
@@ -54,7 +71,10 @@
     "nome": "Artigo7",
     "preco": 1.5,
     "sem_desconto": 1.75,
-    "info": "Informação do artigo7"
+    "info": "Informação do artigo7",
+    "extra": "nenhum",
+    "categoriaid": 1,
+    "subcategoriaid": 2
   },
   {
     "id": 8,
@@ -62,6 +82,9 @@
     "nome": "Artigo8",
     "preco": 1.5,
     "sem_desconto": 3,
-    "info": "Informação do artigo8"
+    "info": "Informação do artigo8",
+    "extra": "nenhum",
+    "categoriaid": 3,
+    "subcategoriaid": 1
   }
 ]
