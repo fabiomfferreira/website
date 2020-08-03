@@ -220,7 +220,7 @@ app.post('/eliminacategoria', function(request, response){
   response.json(allData);
   console.log(allData);
   console.log(data.categoria);
-  let quantidadesub;
+
   //Requere ficheiro itens.json
   const itens = require("./itens/itens.json"); 
  
@@ -258,9 +258,11 @@ app.post('/eliminasubcategoria', function(request, response){
       for (let j in itens[i].row) {
         if(itens[i].name==data.categoria){
           if(itens[i].row[j].subcategoria==data.subcategoria){
-            z = itens[i].row[j].subcategoria;
-            console.log(z);
-            itens[i].row.splice(j, 1);
+            if(itens[i].row[j].artigos.length<=1){
+              z = itens[i].row[j].subcategoria;
+              console.log(z);
+              itens[i].row.splice(j, 1);
+            }
           }
       }
     }

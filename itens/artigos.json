@@ -19,7 +19,7 @@
   {
     "id": 3,
     "img": "/Assets/agua_evian.jpg",
-    "nome": "Artigo3",
+    "nome": "Evian 1,5L",
     "preco": 1.99,
     "sem_desconto": null,
     "info": "agua evian"
@@ -51,10 +51,10 @@
   {
     "id": 7,
     "img": "/Assets/luso_33cl.png",
-    "nome": "Luso 33cl",
+    "nome": "Artigo7",
     "preco": 1.5,
     "sem_desconto": 1.75,
-    "info": "agua luso garrafa 33cl"
+    "info": "Informação do artigo7"
   },
   {
     "id": 8,
@@ -62,6 +62,6 @@
     "nome": "Artigo8",
     "preco": 1.5,
     "sem_desconto": 3,
-    "info": "agua mineral natural"
+    "info": "Informação do artigo8"
   }
 ]
