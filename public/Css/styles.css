@@ -1,3 +1,4 @@
+/*CSS utilizado na parte do administrador*/
 *,
 *::before,
 *::after {
@@ -1568,14 +1569,14 @@ textarea.form-control {
 }
 
 .form-group .btn-login{
-  margin-left: 80%;
+  margin-left: 71%;
   background-color: rgb(255, 201, 40);
   margin-top: -17px;
   font-weight: bold;
 }
 
 .form-group .btn-submit{
-  margin-left: 75%;
+  margin-left: 71%;
   background-color: rgb(255, 201, 40);
   font-weight: bold;
 }

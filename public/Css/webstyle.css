@@ -1,3 +1,4 @@
+/*CSS website*/
 body {
     padding-top: 63px;
     background-color:rgba(151, 143, 120, 0.11);
@@ -191,7 +192,6 @@ body {
     margin-bottom: 33px;
 }
 
-
 .card{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     width: 100%;
@@ -273,42 +273,25 @@ body {
     margin-top: 25px;
 }
 
-/*CART*/
 #carrinho-body{
     margin-top: -40px;
 }
-.cart-column {
-    display: flex;
-    align-items: center;
-    text-decoration: #040505;
-    font-size: 18px;
-}
 
-.cart-item {
-    width: 45%;
+#regForm{
+    overflow: auto;
 }
-
-.cart-price {
-    width: 30%;
-    color: #333;
-}
-
-.cart-quantity {
-    width: 35%;
-}
-
 .form-quantidade{
     width: 45px;
     height: 35px;
 }
 
 .minus-item{
-    width:12px;
+    width:5px;
     height: 35px;
 }
 
 .plus-item{
-    width:12px;
+    width:5px;
     height: 35px;
 }
 
@@ -317,36 +300,104 @@ body {
     height: 35px;
 }
 
-.cart-quantity-input{
-    height:35px;
-    width:70px;
-}
-
 hr{
     border: 1px;
     border-style: groove;
+    width: auto;
 }
 
 .cart-total{
-    font-size: 17px;
+    font-size: 15px;
 }
 
-.cart-total-title{
-    margin-left: 70%;
+.show-cart tr td{
+    font-size: 15px;
+}
+.quantidade-div{
+    width: 100px;
 }
 
-.cart-container .row{
+/*stepper do carrinho*/
+#regForm {
+    margin: auto;
+    padding: 40px;
     width: 100%;
 }
-/*FIM CART*/
+
+h1 {
+    text-align: center;
+}
+
+.cart-column{
+    font-size: 15px;
+}
+
+input.invalid {
+    background-color: #ffdddd;
+}
+
+.modal-footer .btn{
+    width: 120px;
+}
+
+.modal-footer .btn-primary:hover {
+    background-color: rgb(255, 201, 40);
+    color:black;
+    border-color: rgb(255, 201, 40);
+}
+
+.modal-footer .btn-success:hover {
+    background-color: rgb(255, 201, 40);
+    color:black;
+    border-color: rgb(255, 201, 40);
+}
+
+.fa-money-check{
+    color: black;
+}
+
+.tab {
+    display: none;
+    margin-top: 29px;
+}
+
+.steps .step {
+    height: 30px;
+    width: 32px;
+    margin: 9px;
+    background-color: #d4d4d4;
+    border: none;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+#confirmar{
+    text-align: center;
+}
+
+.step.active {
+    background-color: #acacac;
+}
+.step .span{
+text-align: center;
+}
+
+.step.finish {
+    background-color: rgb(255, 201, 40);
+}
+
+#confirmar .fa-check-circle{
+    color: green;
+}
 
 /*FOOTERS*/
 footer{
-    background: #ddd;
-    position: -webkit-sticky;
+  background: #ddd;
+  position: -webkit-sticky;
   left: 0;
   bottom: 0;
   width: 100%;
   text-align: center;
 }
 /*FIM FOOTERS*/
+

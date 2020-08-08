@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1",
+    "nome": "Mineral Natural 1,5L",
+    "preco": 1.5,
+    "quantidade": 2
+  },
+  {
+    "id": "2",
+    "nome": "Alcafaz 1,5L",
+    "preco": 0.5,
+    "quantidade": 5
+  },
+  {
+    "id": "6",
+    "nome": "Luso Vidro 1,5L",
+    "preco": 1.5,
+    "quantidade": 1
+  }
+]

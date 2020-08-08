@@ -7,6 +7,7 @@
     "sem_desconto": 2,
     "info": "agua mineral natural 1,5L",
     "extra": "nenhum",
+    "iva": 1.23,
     "categoriaid": 1,
     "subcategoriaid": 1
   },
@@ -18,6 +19,7 @@
     "sem_desconto": 1,
     "info": "agua alcafaz 1,5L",
     "extra": "nenhum",
+    "iva": 1.23,
     "categoriaid": 1,
     "subcategoriaid": 1
   },
@@ -29,6 +31,7 @@
     "sem_desconto": null,
     "info": "agua evian",
     "extra": "nenhum",
+    "iva": 1.23,
     "categoriaid": 1,
     "subcategoriaid": 1
   },
@@ -40,6 +43,7 @@
     "sem_desconto": null,
     "info": "agua fastio",
     "extra": "nenhum",
+    "iva": 1.23,
     "categoriaid": 1,
     "subcategoriaid": 1
   },
@@ -51,6 +55,7 @@
     "sem_desconto": 1.6,
     "info": "agua luso garrafão",
     "extra": "nenhum",
+    "iva": 1.23,
     "categoriaid": 1,
     "subcategoriaid": 1
   },
@@ -62,6 +67,7 @@
     "sem_desconto": 2,
     "info": "agua luso garrafa de vidro",
     "extra": "nenhum",
+    "iva": 1.23,
     "categoriaid": 1,
     "subcategoriaid": 1
   },
@@ -73,8 +79,9 @@
     "sem_desconto": 1.75,
     "info": "Informação do artigo7",
     "extra": "nenhum",
+    "iva": 1.23,
     "categoriaid": 1,
-    "subcategoriaid": 2
+    "subcategoriaid": 1
   },
   {
     "id": 8,
@@ -84,7 +91,92 @@
     "sem_desconto": 3,
     "info": "Informação do artigo8",
     "extra": "nenhum",
-    "categoriaid": 3,
+    "iva": 1.23,
+    "categoriaid": 1,
+    "subcategoriaid": 1
+  },
+  {
+    "id": 9,
+    "img": "/Assets/",
+    "nome": "Mineral Natural 1,5L",
+    "preco": 1.5,
+    "sem_desconto": 2,
+    "info": "agua mineral natural 1,5L",
+    "extra": "nenhum",
+    "iva": 1.23,
+    "categoriaid": 1,
+    "subcategoriaid": 2
+  },
+  {
+    "id": 10,
+    "img": "/Assets/",
+    "nome": "Alcafaz 1,5L",
+    "preco": 0.5,
+    "sem_desconto": 1,
+    "info": "agua alcafaz 1,5L",
+    "extra": "nenhum",
+    "iva": 1.23,
+    "categoriaid": 1,
+    "subcategoriaid": 2
+  },
+  {
+    "id": 11,
+    "img": "/Assets/",
+    "nome": "Evian 1,5L",
+    "preco": 1.99,
+    "sem_desconto": null,
+    "info": "agua evian",
+    "extra": "nenhum",
+    "iva": 1.23,
+    "categoriaid": 1,
+    "subcategoriaid": 2
+  },
+  {
+    "id": 12,
+    "img": "/Assets/",
+    "nome": "Fastio 1,5L",
+    "preco": 1,
+    "sem_desconto": null,
+    "info": "agua fastio",
+    "extra": "nenhum",
+    "iva": 1.23,
+    "categoriaid": 1,
+    "subcategoriaid": 2
+  },
+  {
+    "id": 13,
+    "img": "/Assets/",
+    "nome": "Luso 5L",
+    "preco": 1.5,
+    "sem_desconto": 1.6,
+    "info": "agua luso garrafão",
+    "extra": "nenhum",
+    "iva": 1.23,
+    "categoriaid": 1,
+    "subcategoriaid": 2
+  },
+  {
+    "id": 14,
+    "img": "/Assets/",
+    "nome": "Luso Vidro 1,5L",
+    "preco": 1.5,
+    "sem_desconto": 2,
+    "info": "agua luso garrafa de vidro",
+    "extra": "nenhum",
+    "iva": 1.23,
+    "categoriaid": 1,
+    "subcategoriaid": 2
+  },
+  {
+    "id": 15,
+    "img": "/Assets/",
+    "nome": "Novo",
+    "preco": 1.5,
+    "sem_desconto": 2,
+    "info": "agua luso garrafa de vidro",
+    "extra": "nenhum",
+    "iva": 1.23,
+    "categoriaid": 2,
     "subcategoriaid": 1
   }
 ]

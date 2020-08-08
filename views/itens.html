@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sopping Web App</title>
     <link href="/Css/bootstrap.min.css" rel="stylesheet">
     <link href="/Css/webstyle.css" rel="stylesheet">
@@ -69,18 +71,17 @@
                                     
             </div>
         </div>
-        
         <div class="col-12 col-sm-10">
             <div id="artigos" class="element element-2">
                 <br>
-                <h1 id="titulo-promo">Promoções</h1>             
+                <h1 id="titulo-promo" >Promoções</h1>          
                 <div class="row" id="promocoes">
-
+  
                 </div>
                 <h1 id="titulo-categoria"></h1>
                 <div class="row" id="artigos-container">
                 
-                </div>
+                </div> 
                 <!--<a href="javascript:prevPage()" id="btn_prev">Prev</a>
                 <a href="javascript:nextPage()" id="btn_next">Next</a>-->
             </div>
@@ -92,7 +93,7 @@
 <!-- Modal para o carrinho -->
 <div class="modal fade" id="carrinhoModal">
     <div class="modal-dialog modal-lg">
-        <div class="modal-content">
+        <div class="modal-content modal-carrinho">
             <!-- Modal header -->
             <div class="modal-header">
                 <h4 class="modal-title">Carrinho</h4>
@@ -106,33 +107,62 @@
                 <form id="regForm">
                     <!--Steps do form-->
                     <div class="steps" style="text-align:center;">
-                        <span class="step btn"><i class="fa fa-shopping-cart"></i></span>
-                        <span class="step btn"><i class="fas fa-money-check-alt"></i></span>
-                        <span class="step btn"><i class="fa fa-user"></i></span>
-                        <span class="step btn"><i class="fas fa-check"></i></span>
+                        <span class="step"><i class="fa fa-shopping-cart fa-sm"></i></span>
+                        <span class="step"><i class="fa fa-user fa-sm"></i></span>
+                        <span class="step"><i class="fas fa-money-check-alt fa-sm"></i></span>
+                        <span class="step"><i class="fas fa-check fa-sm"></i></span>
                     </div>
                     <!--tab de cada form-->
                     <div class="tab">                                   
-                                <table class="cart-table-title table">
+                        <table class="table">
+                            <thead class="cart-table-title">
+                                    
+                            </thead> 
+                           <tbody class="show-cart">
 
-                                </table>
-                                <table class="show-cart table">
-
-                                </table>
-                            <div class="cart-total">
-                                <br><br>
-                                <hr>
-                                <strong class="cart-total-title">Preço Total: <span class="total-cart"></span>€</strong>
+                          </tbody>
+                        </table>
+                        <div class="cart-total">
+                            <br>
+                            <hr>
+                            <strong class="cart-total-title">Preço Total: <span class="total-cart"></span>€</strong>
+                        </div>                       
+                    </div>
+                    <div class="tab">
+                        <!--<label for="NomeCart">Nome:</label>
+                        <div class="form-row">
+                            <div class="col">
+                              <input id="firstNome" type="text" class="form-control" placeholder="Primeiro Nome..">
                             </div>
-                        
+                            <div class="col">
+                              <input id="lastNome" type="text" class="form-control" placeholder="Apelido..">
+                            </div>
+                        </div>
+                        <div class="form-group mt-3">
+                            <label for="emailCart">Email:</label>
+                            <input type="email"  class="form-control" id="emailCart" placeholder="Introduza o seu email.." name="EmailCart">
+                        </div>
+                        <div class="form-group">
+                            <label for="cartMorada">Morada</label>
+                            <input type="text" class="form-control" id="cartMorada" placeholder="Morada..">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col">
+                              <label for="cartCidade">Cidade</label>
+                              <input type="text" class="form-control" id="cartCidade" placeholder="Cidade..">
+                            </div>
+                            <div class="form-group col">
+                              <label for="cartZip">Zip</label>
+                              <input type="text" class="form-control" id="cartZip" placeholder="Código-Postal.."> 
+                            </div>
+                          </div>
+                            <div class="form-group">
+                              <label for="exampleInputPassword1">Password</label>
+                              <input type="password" class="form-control" id="InputPassword1" placeholder="Password">
+                            </div>-->
                     </div>
                     <div class="tab" id="mpagamento">
                         <strong>MÉTODOS DE PAGAMENTO:</strong>
-
-                    </div>
-                    <div class="tab" >
-                        <strong>EMAIL:</strong>
-                        <form><input id="email" placeholder="Email..." oninput="this.className = ''" name="email" type="email" required><!--<input class="btn" type="submit">--></form>
                     </div>
                     <div class="tab" id="confirmar">
                         <div class="spinner-border text-warning"></div>
@@ -143,10 +173,10 @@
             </div>
             <!-- Modal footer -->
             <div class="modal-footer">
-                <button class="clear-cart btn btn-danger btn-lg" type="button" id="clearBtn">Limpar</button>
-                <button  class="btn btn-danger btn-lg" type="button" data-dismiss="modal">Fechar</button>
-                <button class="btn btn-primary btn-lg" type="button" id="prevBtn" onclick="nextPrev(-1)">Anterior</button>
-                <button class="btn btn-success btn-lg" type="button" id="nextBtn" onclick="nextPrev(1)">Seguinte</button>
+                <button class="clear-cart btn btn-danger" type="button" id="clearBtn">Limpar</button>
+                <button  class="btn btn-danger" type="button" data-dismiss="modal">Fechar</button>
+                <button class="btn btn-primary" type="button" id="prevBtn" onclick="nextPrev(-1)">Anterior</button>
+                <button class="btn btn-success" type="button" id="nextBtn" onclick="nextPrev(1)">Seguinte</button>
             </div>
         </div>
     </div>

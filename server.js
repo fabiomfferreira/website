@@ -334,3 +334,18 @@ app.post('/novapassword', function(request, response){
   console.log("Escrito com sucesso");
   });
 });
+
+//POST - Muda password do admin
+app.post('/carrinho', function(request, response){
+  const data = request.body;
+  
+  console.log(data.carrinho);
+
+  //Requere ficheiro carrinho.json
+  //const carrinho = require("./itens/carrinho.json");
+  //Escreve no ficheiro carrinho.json
+  fs.writeFile("./itens/carrinho.json", JSON.stringify(data.carrinho,null,2), err => { 
+  if (err) throw err;  
+  console.log("Escrito com sucesso");
+  });
+});

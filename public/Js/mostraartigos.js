@@ -8,8 +8,7 @@ $('#btn_next').hide();
 $('.btn-categoria').on('click', function(event){
     $('#titulo-promo').hide();
     $('#promocoes').hide();
-    $('#btn_prev').show();
-    $('#btn_next').show();
+
     //seleciona categoria/subcategoria
     let categoria = $(this).attr('id');
     $('#artigos-container').empty();
@@ -25,7 +24,7 @@ function getItensIds(categoria) {
         data.forEach(element => {
             element.row.forEach(sub => {
                 // Verifica se a subcategoria do "row" é igual à "categoria"
-                if(sub.subcategoria === categoria){
+                if(sub.subcategoria == categoria || sub.subcategoria.toUpperCase()==categoria.toUpperCase() || sub.subcategoria.toLowerCase()==categoria.toLowerCase()){
                     titulo.text(sub.subcategoria);
                     preencheProduto(element.id,sub.id);
                 }
@@ -39,7 +38,7 @@ function preencheProduto(catid,subid){
     let container = $('#artigos-container');
     fetch('/artigos.json').then(resp => resp.json()).then(data => {
         data.forEach(artigo => { 
-            let art=new Artigo(artigo.id,artigo.img,artigo.nome,artigo.preco,artigo.info,artigo.sem_desconto,artigo.extra,artigo.categoriaid,artigo.subcategoriaid);
+            let art=new Artigo(artigo.id,artigo.img,artigo.nome,artigo.preco,artigo.info,artigo.sem_desconto,artigo.extra,artigo.iva,artigo.categoriaid,artigo.subcategoriaid);
  
             if(art.categoriaid==catid  && art.subcategoriaid==subid){
                 let col =document.createElement('div');
@@ -50,3 +49,41 @@ function preencheProduto(catid,subid){
         })
     }).catch(e => console.error(e));
 }
+
+//Pesquisa subcategoria com botao - onclick
+$('#btn-search').on('click', function(event){
+    $('#titulo-promo').hide();
+    $('#promocoes').hide(); 
+    $('#artigos-container').empty();
+    var pesquisa=$('#input-pesquisa').val();
+    console.log(pesquisa);
+    getItensIds(pesquisa);
+})
+
+//Pesquisa subcategoria com tecla "enter"
+$('#input-pesquisa').keypress(function(event){
+    if ( event.which == 13 ) {
+        event.preventDefault();
+        $('#titulo-promo').hide();
+        $('#promocoes').hide(); 
+        $('#artigos-container').empty();
+        var pesquisa=$('#input-pesquisa').val();
+        console.log(pesquisa);
+
+        fetch('/itens.json').then(resp => resp.json()).then(data => {
+            data.forEach(element => {
+                element.row.forEach(sub => {
+                    // Verifica se a subcategoria do "row" é igual à "categoria"
+                    if(sub.subcategoria == pesquisa || sub.subcategoria.toUpperCase()==pesquisa.toUpperCase() || sub.subcategoria.toLowerCase()==pesquisa.toLowerCase()){
+                        getItensIds(pesquisa);
+                    }
+                    else{
+                        $('#titulo-promo').hide();
+                        $('#promocoes').hide();
+                        
+                    }
+                })
+             })
+        }).catch(e => console.error(e));
+     }
+})

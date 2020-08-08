@@ -11,7 +11,7 @@ export default class Artigo{
     subcategoriaid;
     card;
 
-    constructor(id, img,nome,preco,info,sem_desconto,extra,categoriaid,subcategoriaid) {
+    constructor(id, img,nome,preco,info,sem_desconto,extra,iva,categoriaid,subcategoriaid) {
         this.id = id;
         this.nome = nome;
         this.preco = preco;
@@ -19,6 +19,7 @@ export default class Artigo{
         this.info=info;
         this.extra=extra;
         this.sem_desconto=sem_desconto;
+        this.iva=iva;
         this.categoriaid=categoriaid;
         this.subcategoriaid=subcategoriaid;
         this.createCard();
@@ -37,7 +38,7 @@ export default class Artigo{
                     <button type="button" class="btn btn-danger btn-extra btn-sm" data-toggle="modal" data-target="#extras${this.id}">Extras</button>
                 </div>
                 <div class="card-footer">
-                    <button data-id="${this.id}" data-nome="${this.nome}" data-price="${this.preco}" class= "btn btn-add btn-lg add-to-cart" onclick="addToCart('${this.nome}','${this.preco}')"><i class="fas fa-cart-plus"></i></button>
+                    <button data-id="${this.id}" data-nome="${this.nome}" data-price="${this.preco}" class= "btn btn-add btn-lg add-to-cart" onclick="addToCart('${this.nome}','${this.preco}','${this.id}','${this.iva}')"><i class="fas fa-cart-plus"></i></button>
                 </div>
                 </div>
                 <!-- Modal para as informaçoes -->
@@ -90,7 +91,7 @@ export default class Artigo{
                     <button type="button" class="btn btn-danger btn-extra btn-sm" data-toggle="modal" data-target="#extras${this.id}">Extras</button>
                 </div>
                 <div class="card-footer">
-                    <button data-id="${this.id}" data-nome="${this.nome}" data-price="${this.preco}" class= "btn btn-add btn-lg add-to-cart" onclick="addToCart('${this.nome}','${this.preco}')"><i class="fas fa-cart-plus"></i></button>
+                    <button data-id="${this.id}" data-nome="${this.nome}" data-price="${this.preco}" class= "btn btn-add btn-lg add-to-cart" onclick="addToCart('${this.nome}','${this.preco}','${this.id}','${this.iva}')"><i class="fas fa-cart-plus"></i></button>
                 </div>
                 </div>
                 <!-- Modal para as informaçoes -->
