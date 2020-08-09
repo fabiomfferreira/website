@@ -1,6 +1,5 @@
 // mostra/lista categorias e respetivas subcategorias - secção vizualizar
 let listCat=document.getElementById('veCategoria');
-let listSub=document.getElementById('veSubcategoria');
 
     fetch('/itens.json')
         .then(resp => resp.json())
