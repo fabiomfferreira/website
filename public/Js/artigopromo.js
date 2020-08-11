@@ -6,6 +6,9 @@ export default class ArtigoPromo{
     img;
     info;
     extra;
+    iva;
+    categoriaid;
+    subcategoriaid;
     sem_desconto;
     card;
 

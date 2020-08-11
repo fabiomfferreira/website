@@ -6,6 +6,7 @@ export default class Artigo{
     img;
     info;
     extra;
+    iva;
     sem_desconto;
     categoriaid;
     subcategoriaid;
@@ -133,8 +134,6 @@ export default class Artigo{
                     </div>
                 </div>`;
         }
-        
-
     }
 }
 
