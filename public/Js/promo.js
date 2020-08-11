@@ -2,7 +2,7 @@ import Artigo from './artigo.js';
 //mostrar artigos em promoção na pagina principal (index.html)
 let maximo=6;
 let i=0;
-(() => {
+
     fetch('/artigos.json')
         .then(resp => resp.json())
         .then(data => {
@@ -21,7 +21,7 @@ let i=0;
         });
         })
     .catch(e => console.error(e));    
-})();
+
 
 
 

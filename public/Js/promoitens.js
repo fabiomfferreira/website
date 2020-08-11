@@ -1,13 +1,16 @@
 import ArtigoPromo from './artigopromo.js';
 //mostrar artigos em promoção (itens.html)
+
 let maximo=6;
 let i=0;
-(() => {
+
     fetch('/artigos.json')
         .then(resp => resp.json())
         .then(data => {
             data.forEach(element => {
-                let art=new ArtigoPromo(element.id,element.img,element.nome,element.preco,element.info,element.sem_desconto,element.extra,element.iva,element.categoriaid,element.subcategoriaid);
+                let art=new ArtigoPromo(element.id,element.img,element.nome,element.preco,element.info,
+                element.sem_desconto,element.extra,element.iva,element.categoriaid,element.subcategoriaid);
+                
                 if(art.sem_desconto!=null){
                     i++;
                     if(i<=maximo){
@@ -21,4 +24,3 @@ let i=0;
         });
         })
     .catch(e => console.error(e));    
-})()
