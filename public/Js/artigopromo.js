@@ -28,19 +28,19 @@ export default class ArtigoPromo{
 
     createCard() {
             this.card = `<div class="card h-100">
-                <img class="card-img-top  artigo_img" src="${this.img}" alt="">
-                <div class="card-body">
-                <a href="#" data-toggle="tooltip" title="Informações"> <button type="button" class="btn btn-info btn-sm mb-3" data-toggle="modal" data-target="#modalpromo${this.id}">Informações</button></a>
-                    <p class="card-title">${this.nome}</p>
-                    <div class="card-price">
-                        <span class="card-price-new">${this.preco}€</span> <del class="card-price-old">${this.sem_desconto}€</del>
-                    </div>
-                    <button type="button" class="btn btn-danger btn-extra btn-sm" data-toggle="modal" data-target="#promoextras${this.id}">Extras</button>
-                </div>
-                <div class="card-footer">
-                    <button data-id="${this.id}" data-nome="${this.nome}" data-price="${this.preco}" class= "btn btn-add btn-lg add-to-cart" onclick="addToCart('${this.nome}','${this.preco}','${this.id}','${this.iva}')"><i class="fas fa-cart-plus"></i></button>
-                </div>
-                </div>
+                            <img class="card-img-top  artigo_img" src="${this.img}" alt="">
+                            <div class="card-body">
+                            <a href="#" data-toggle="tooltip" title="Informações"> <button type="button" class="btn btn-info btn-sm mb-3" data-toggle="modal" data-target="#modalpromo${this.id}">Informações</button></a>
+                                <p class="card-title">${this.nome}</p>
+                                <div class="card-price">
+                                    <span class="card-price-new">${this.preco}€</span> <del class="card-price-old">${this.sem_desconto}€</del>
+                                </div>
+                                <button type="button" class="btn btn-danger btn-extra btn-sm" data-toggle="modal" data-target="#promoextras${this.id}">Extras</button>
+                            </div>
+                            <div class="card-footer">
+                                <button data-id="${this.id}" data-nome="${this.nome}" data-price="${this.preco}" class= "btn btn-add btn-lg add-to-cart" onclick="addToCart('${this.nome}','${this.preco}','${this.id}','${this.iva}')"><i class="fas fa-cart-plus"></i></button>
+                            </div>
+                        </div>
                 <!-- Modal para as informaçoes -->
                 <div class="modal fade" id="modalpromo${this.id}">
                     <div class="modal-dialog">
@@ -80,6 +80,4 @@ export default class ArtigoPromo{
                     </div>
                 </div>`;
         }
-        
-
 }

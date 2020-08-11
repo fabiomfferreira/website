@@ -11,7 +11,7 @@ export default class Artigo{
     categoriaid;
     subcategoriaid;
     card;
-
+    
     constructor(id, img,nome,preco,info,sem_desconto,extra,iva,categoriaid,subcategoriaid) {
         this.id = id;
         this.nome = nome;
