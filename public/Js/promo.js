@@ -1,5 +1,6 @@
 import Artigo from './artigo.js';
 //mostrar artigos em promoção na pagina principal (index.html)
+
 let maximo=6;
 let i=0;
 
@@ -7,7 +8,9 @@ let i=0;
         .then(resp => resp.json())
         .then(data => {
             data.forEach(element => {
-                let art=new Artigo(element.id,element.img,element.nome,element.preco,element.info,element.sem_desconto,element.extra,element.iva,element.categoriaid,element.subcategoriaid);
+                let art=new Artigo(element.id,element.img,element.nome,element.preco,element.info,
+                element.sem_desconto,element.extra,element.iva,element.categoriaid,element.subcategoriaid);
+                
                 if(art.sem_desconto!=null){
                     i++;
                     if(i<=maximo){
