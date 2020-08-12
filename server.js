@@ -105,8 +105,7 @@ app.get('/admin',
 //POST adiciona itens - nova categoria, nova subcategoria
 app.post('/gravaitens', function(request, response) {
   const data = request.body;
-  allData.push(data);
-  response.json(allData);
+ 
   let novoid,novoidsub=1;
   //Requere o ficheiro itens.json
   const itens = require("./itens/itens.json"); 

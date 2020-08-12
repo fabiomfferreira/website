@@ -8,8 +8,7 @@ button.addEventListener('click', async event => {
   subcategoria = document.getElementById("inputSubcategoria").value;
         
   const data = { categoria,subcategoria};
-  console.log(data);
-
+  
   const options = {
     method: 'POST',
     headers: {
@@ -23,8 +22,6 @@ button.addEventListener('click', async event => {
     }else{
       console.log("erro");
       }
-    const json = await response.json();
-    console.log(json);
 });
 
 //POST Request associa artigos a subcategoria e categoria
@@ -53,8 +50,6 @@ const butt = document.getElementById('btnArtigo');
         }else{
           console.log("erro");
           }
-        const json = await response.json();
-        console.log(json);     
   });
 
 
