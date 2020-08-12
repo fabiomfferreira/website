@@ -20,3 +20,4 @@ let listCat=document.getElementById('veCategoria');
             });
         })
     .catch(e => console.error(e));    
+    
