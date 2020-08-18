@@ -2,7 +2,7 @@
   {
     "id": 1,
     "img": "/Assets/agua.jpg",
-    "nome": "Mineral Natural 1,5L",
+    "nome": "Natural 1,5L",
     "preco": 1.5,
     "sem_desconto": 2,
     "info": "agua mineral natural 1,5L",
@@ -27,7 +27,7 @@
     "id": 3,
     "img": "/Assets/agua_evian.jpg",
     "nome": "Evian 1,5L",
-    "preco": 1.99,
+    "preco": 1,
     "sem_desconto": null,
     "info": "agua evian",
     "extra": "nenhum",
@@ -74,10 +74,10 @@
   {
     "id": 7,
     "img": "/Assets/luso_33cl.png",
-    "nome": "Artigo7",
+    "nome": "Luso 33cl",
     "preco": 1.5,
     "sem_desconto": 1.75,
-    "info": "Informação do artigo7",
+    "info": "Água Natural Luso 33cl",
     "extra": "nenhum",
     "iva": 1.23,
     "categoriaid": 1,
@@ -85,14 +85,14 @@
   },
   {
     "id": 8,
-    "img": "/Assets/agua.jpg",
-    "nome": "Artigo8",
-    "preco": 1.5,
-    "sem_desconto": 3,
-    "info": "Informação do artigo8",
+    "img": "/Assets/pizza_peperoni.jpg",
+    "nome": "Pizza Peperoni",
+    "preco": 2.99,
+    "sem_desconto":3.99,
+    "info": "Pizza Peperoni Congelada",
     "extra": "nenhum",
     "iva": 1.23,
-    "categoriaid": 1,
+    "categoriaid": 3,
     "subcategoriaid": 1
   },
   {
@@ -175,8 +175,6 @@
     "sem_desconto": 2,
     "info": "agua luso garrafa de vidro",
     "extra": "nenhum",
-    "iva": 1.23,
-    "categoriaid": 2,
-    "subcategoriaid": 1
+    "iva": 1.23
   }
 ]

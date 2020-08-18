@@ -13,11 +13,6 @@ body {
     text-align: center;
 }
 
-.btn-admin{
-    font-size: 27px;
-    background-color: rgb(255, 201, 40);
-}
-
 .nav-link{
     color: black;
 }
@@ -307,7 +302,14 @@ hr{
 }
 
 .cart-total{
-    font-size: 15px;
+    font-size: 17px;
+    text-align: right;
+}
+
+.cart-iva{
+    font-size: 13px;
+    font-weight: lighter;
+    text-align: right;
 }
 
 .show-cart tr td{

@@ -18,7 +18,6 @@ const button = document.getElementById('btn-changepass');
       }else{
         console.log("erro");
         }
-      const json = await response.json();
   });
     
       

@@ -5,8 +5,7 @@ let categoria, subcategoria, artigo;
 const button = document.getElementById('btnaddCategoria');
 button.addEventListener('click', async event => {
   categoria = document.getElementById("inputCat").value;
-  subcategoria = document.getElementById("inputSubcategoria").value;
-        
+  subcategoria = document.getElementById("inputSubcategoria").value;    
   const data = { categoria,subcategoria};
   
   const options = {
@@ -24,7 +23,7 @@ button.addEventListener('click', async event => {
       }
 });
 
-//POST Request associa artigos a subcategoria e categoria
+//POST Request associa categoria e subcategoria a artigos 
 const butt = document.getElementById('btnArtigo');
   butt.addEventListener('click', async event => {
     let selectcat = document.getElementById('subList');

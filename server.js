@@ -27,9 +27,9 @@ passport.use(new Strategy(
 
 //Configura persistência de sessão de autenticação Passport
 //para restaurar o estado de autenticação nas solicitações HTTP,
-//o Passport precisa serializar usuários e desserializar usuários fora da sessão. 
+//o Passport precisa serializar usuários e deserializar usuários fora da sessão. 
 //A implementação típica disso é tão simples quanto fornecer o ID do usuário quando
-//serializando e consultando o registro do usuário por ID do banco de dados quando desserialização.
+//serializado e consultando o registo do usuário por ID do banco de dados quando deserializado.
 passport.serializeUser(function(user, cb) {
   cb(null, user.id);
 });
@@ -104,69 +104,54 @@ app.get('/admin',
 
 //POST adiciona itens - nova categoria, nova subcategoria
 app.post('/gravaitens', function(request, response) {
-  const data = request.body;
- 
-  let novoid,novoidsub=1;
+  let data = request.body;
+  let novoid,novoidsub=1,existe=0;
   //Requere o ficheiro itens.json
   const itens = require("./itens/itens.json"); 
 
-  let existe=0;  
-  
-  for(let i=0; i<itens.length; i++) 
-    { 
+    for(let i=0; i<itens.length; i++){ 
       //ve se a categoria introduzida já existe
       if(itens[i].name==data.categoria){
         existe=1;
       } 
       if(i==itens.length-1){
         novoid=itens[i].id+1;
-        console.log(novoid);
       }
     }  
-
     //existe a categoria, então adiciona só a subcategoria
     if(existe==1){
-      for (let i=0; i<itens.length;i++) {
-        for (let j=0; j<itens[i].row.length;j++) {
-          if(j==itens[i].row.length-1)
-          {
+      for (let i=0; i<itens.length;i++){
+        for (let j=0; j<itens[i].row.length;j++){
+          if(j==itens[i].row.length-1){
             novoidsub=itens[i].row[j].id+1;
           }
         }
-      }
-      
-      for(let i=0; i<itens.length; i++) 
-        {        
-          if(itens[i].name==data.categoria){
-              for (let j=0; j<itens[i].row.length;j++) {
-                if(j==itens[i].row.length-1)
-                {
-                  novoidsub=itens[i].row[j].id+1;
-                  obj={ id: novoidsub, subcategoria: data.subcategoria};
-                }
+      } 
+      for(let i=0; i<itens.length; i++){        
+        if(itens[i].name==data.categoria){
+            for (let j=0; j<itens[i].row.length;j++){
+              if(j==itens[i].row.length-1){
+                novoidsub=itens[i].row[j].id+1;
+                obj={ id: novoidsub, subcategoria: data.subcategoria};
               }
-            itens[i].row.push(obj);
-            console.log("sucesso a gravar subcategoria nova");
-          } 
+            }
+          itens[i].row.push(obj);
+          console.log("sucesso a gravar subcategoria nova");
         } 
+      } 
     }
 
     //não existe a categoria, então adiciona categoria e subcategoria
     if(existe==0){
-      let x = { 
-        id: novoid, 
-        name: data.categoria, 
-        row: [
+      let x = { id: novoid, name: data.categoria, row: [
           {
             id:novoidsub ,
             subcategoria:data.subcategoria
           }
-        ] 
-      }; 
+        ] }; 
       itens.push(x);
       console.log("sucesso a gravar categoria e subcategoria nova");
     }
-
   //Escreve no ficheiro itens.json
   fs.writeFile("./itens/itens.json", JSON.stringify(itens,null,2), function(err){   
     if (err) throw err;  
@@ -175,12 +160,11 @@ app.post('/gravaitens', function(request, response) {
 });
 
 
-//POST associa artigos a subcategoria e categoria
+//POST associa categoria e subcategoria a artigos 
 app.post('/associa', function(request, response) {
-  const data = request.body;
-  allData.push(data);
-  response.json(allData);
+  let data = request.body;
   let idcategoria, idsubcategoria;
+  
   //Requere ficheiros itens.json e artigos.json
   const itens = require("./itens/itens.json");
   const artigos = require("./itens/artigos.json");  
@@ -216,22 +200,17 @@ app.post('/associa', function(request, response) {
 
 //POST elimina itens - categoria
 app.post('/eliminacategoria', function(request, response){
-  const data = request.body;
+  let data = request.body;
   allData.push(data);
   response.json(allData);
-  console.log(allData);
-  console.log(data.categoria);
-
   //Requere ficheiro itens.json
   const itens = require("./itens/itens.json"); 
- 
   for(let i=0; i<itens.length; i++) 
     {        
       if(itens[i].name==data.categoria){
         for(let j=0; j<itens[i].row.length; j++){
           if(itens[i].row.length<=1){
             //elimina
-            console.log(itens[i].row.length);
             itens.splice(i, 1);
             console.log("sucesso a eliminar categoria"); 
           }
@@ -250,13 +229,8 @@ app.post('/eliminacategoria', function(request, response){
 
 //POST elimina itens - subcategoria
 app.post('/eliminasubcategoria', function(request, response){
-  const all=[];
-  const data = request.body;
-  all.push(data);
-  response.json(all);
-  console.log(data.categoria);
-  console.log(data.subcategoria);
-  
+  let data = request.body;
+  response.json(data);
   //Requere ficheiro itens.json 
   const itens = require("./itens/itens.json");  
   for (let i in itens) {
@@ -264,7 +238,6 @@ app.post('/eliminasubcategoria', function(request, response){
         if(itens[i].name==data.categoria){
           if(itens[i].row[j].subcategoria==data.subcategoria){
               z = itens[i].row[j].subcategoria;
-              console.log(z);
               itens[i].row.splice(j, 1);
           }
       }
@@ -278,15 +251,9 @@ app.post('/eliminasubcategoria', function(request, response){
   });
 });
 
-//POST desassocia artigo de subcategoria
+//POST desassocia subcategoria e categoria do artigo
 app.post('/desassociaartigo', function(request, response){
-  const all=[];
-  const data = request.body;
-  all.push(data);
-  response.json(all);
-  console.log(data.subcategoria);
-  console.log(data.artigo);
-  let artigoid;
+  let data = request.body;
   let idcategoria, idsubcategoria;
   //Requere ficheiros itens.json e artigos.json
   const itens = require("./itens/itens.json");  
@@ -298,16 +265,12 @@ app.post('/desassociaartigo', function(request, response){
       if(itens[i].row[j].subcategoria==data.subcategoria){
         idsubcategoria=itens[i].row[j].id;
         idcategoria=itens[i].id;
-        console.log(idcategoria);
-        console.log(idsubcategoria);
       }     
     }
   }
-
   //desassocia artigo dos itens (categoria e subcategoria)
   for(let i in artigos){
       if(artigos[i].categoriaid==idcategoria && artigos[i].subcategoriaid==idsubcategoria){
-        console.log(artigos[i]);
         delete artigos[i].categoriaid;
         delete artigos[i].subcategoriaid;
       }
@@ -322,8 +285,8 @@ app.post('/desassociaartigo', function(request, response){
 
 //POST - Muda password do admin
 app.post('/novapassword', function(request, response){
-  const data = request.body;
-  response.json(data);
+  let data = request.body;
+
   //Requere ficheiro admin.json
   const admins = require("./bd/admin.json"); 
   admins[0].password=data.password;
@@ -334,9 +297,9 @@ app.post('/novapassword', function(request, response){
   });
 });
 
-//POST - Muda password do admin
+//POST - Compra carrinho
 app.post('/carrinho', function(request, response){
-  const data = request.body;
+  let data = request.body;
   
   console.log(data.carrinho);
 

@@ -1,20 +1,23 @@
 [
   {
-    "id": "1",
-    "nome": "Mineral Natural 1,5L",
-    "preco": 1.5,
-    "quantidade": 2
-  },
-  {
-    "id": "2",
-    "nome": "Alcafaz 1,5L",
-    "preco": 0.5,
-    "quantidade": 5
-  },
-  {
     "id": "6",
     "nome": "Luso Vidro 1,5L",
     "preco": 1.5,
+    "iva": "1.23",
     "quantidade": 1
+  },
+  {
+    "id": "5",
+    "nome": "Luso 5L",
+    "preco": 1.5,
+    "iva": "1.23",
+    "quantidade": 1
+  },
+  {
+    "id": "8",
+    "nome": "Pizza Peperoni",
+    "preco": 2.99,
+    "iva": "1.23",
+    "quantidade": 2
   }
 ]
