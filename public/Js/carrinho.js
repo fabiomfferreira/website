@@ -312,12 +312,21 @@ function fixStepAtivo(n) {
 
 //Funcao Submetido - envia POST request informação final carrinho
 function Submetido(carrinho) {
-
+  let nome=document.getElementById("Nome").value;
+  console.log(nome);
+  let email=document.getElementById("emailCart").value;
+  console.log(email);
+  let morada=document.getElementById("moradaCart").value;
+  console.log(morada);
+  let cidade=document.getElementById("cidadeCart").value;
+  console.log(cidade);
+  let codpostal=document.getElementById("codPCart").value;
+  console.log(codpostal);
   console.log(carrinho);
     
   //POST Request carrinho
         
-  const data = {carrinho};
+  const data = {carrinho,nome,email,morada,cidade,codpostal};
   console.log(JSON.stringify(data.carrinho));
 
   const options = {

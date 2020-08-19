@@ -302,7 +302,11 @@ app.post('/carrinho', function(request, response){
   let data = request.body;
   
   console.log(data.carrinho);
-
+  console.log(data.nome);
+  console.log(data.email);
+  console.log(data.morada);
+  console.log(data.cidade);
+  console.log(data.codpostal);
   //Requere ficheiro carrinho.json
   //const carrinho = require("./itens/carrinho.json");
   //Escreve no ficheiro carrinho.json

@@ -1,14 +1,14 @@
 [
   {
-    "id": "6",
-    "nome": "Luso Vidro 1,5L",
+    "id": "7",
+    "nome": "Luso 33cl",
     "preco": 1.5,
     "iva": "1.23",
     "quantidade": 1
   },
   {
-    "id": "5",
-    "nome": "Luso 5L",
+    "id": "6",
+    "nome": "Luso Vidro 1,5L",
     "preco": 1.5,
     "iva": "1.23",
     "quantidade": 1
