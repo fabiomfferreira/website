@@ -1,23 +1,30 @@
-[
-  {
-    "id": "7",
-    "nome": "Luso 33cl",
-    "preco": 1.5,
-    "iva": "1.23",
-    "quantidade": 1
-  },
-  {
-    "id": "6",
-    "nome": "Luso Vidro 1,5L",
-    "preco": 1.5,
-    "iva": "1.23",
-    "quantidade": 1
-  },
-  {
-    "id": "8",
-    "nome": "Pizza Peperoni",
-    "preco": 2.99,
-    "iva": "1.23",
-    "quantidade": 2
-  }
-]
+{
+  "nome": "Fábio Miguel Manaia Ferreira",
+  "email": "fab.14@hotmail.com",
+  "morada": "Urbanização Nova Conimbriga Lote B11, 1ºDireito",
+  "cidade": "Condeixa",
+  "codpostal": "3150-230",
+  "carrinho": [
+    {
+      "id": "8",
+      "nome": "Pizza Peperoni",
+      "preco": 2.99,
+      "iva": "1.23",
+      "quantidade": 1
+    },
+    {
+      "id": "7",
+      "nome": "Luso 33cl",
+      "preco": 1.5,
+      "iva": "1.23",
+      "quantidade": 1
+    },
+    {
+      "id": "6",
+      "nome": "Luso Vidro 1,5L",
+      "preco": 1.5,
+      "iva": "1.23",
+      "quantidade": 1
+    }
+  ]
+}

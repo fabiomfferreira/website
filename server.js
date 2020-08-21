@@ -5,7 +5,7 @@ let Strategy = require('passport-local').Strategy;
 let db = require('./bd');
 let path = require('path');
 const fs = require("fs"); 
-
+let nodemailer = require('nodemailer');
 app.listen(3000, () => console.log('servidor a correr na porta 3000'));
 app.use(express.static('public'));
 app.use(express.static('itens'));
@@ -297,21 +297,36 @@ app.post('/novapassword', function(request, response){
   });
 });
 
-//POST - Compra carrinho
+//POST - Compras carrinho
 app.post('/carrinho', function(request, response){
   let data = request.body;
-  
-  console.log(data.carrinho);
-  console.log(data.nome);
-  console.log(data.email);
-  console.log(data.morada);
-  console.log(data.cidade);
-  console.log(data.codpostal);
-  //Requere ficheiro carrinho.json
-  //const carrinho = require("./itens/carrinho.json");
+
   //Escreve no ficheiro carrinho.json
-  fs.writeFile("./itens/carrinho.json", JSON.stringify(data.carrinho,null,2), err => { 
+  fs.writeFile("./itens/carrinho.json", JSON.stringify(data,null,2), err => { 
   if (err) throw err;  
   console.log("Escrito com sucesso");
+  });
+  
+  var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'fabiomiguelmf20@gmail.com',
+      pass: 'ihcowosezdlryeri'
+    }
+  });
+  
+  var mailOptions = {
+    from: 'fabiomiguelmf20@gmail.com',
+    to: 'fabiomiguelmf20@gmail.com',
+    subject: 'Exemplo',
+    html: `<h1>Compra Efetuada!</h1>`
+  };
+  
+  transporter.sendMail(mailOptions, function(error, info){
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Email enviado: ' + info.response);
+    }
   });
 });

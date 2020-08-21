@@ -141,18 +141,16 @@ var shoppingCart = (function() {
     mostraCart();
   };
   
-  //Limpa itens
+  //Limpa carrinho
   $('.clear-cart').on("click",function() {
     shoppingCart.limpaCart();
     mostraCart();
   });
   
-  
   function mostraCart() {
     var cartArray = shoppingCart.listaCart();
     var output = "";
     var title="";
-
     title += 
     "<tr>"+
         "<td>Artigo</td>"+
@@ -162,25 +160,22 @@ var shoppingCart = (function() {
     +"</tr>";
 
     for(var i in cartArray) {
-        output+="<tr>"
-        + "<td>"  + cartArray[i].nome + "</td>" 
-        + "<td>(" + cartArray[i].preco + "€)</td>"
-        + "<td><div class='input-group quantidade-div'><button class='minus-item input-group-addon btn btn-primary' data-nome='"+cartArray[i].nome+"'>-</button>"
-        + "<input type='number' class='item-count  form-quantidade' data-nome='"+cartArray[i].nome+"' value='" + cartArray[i].quantidade + "'>"
-        + "<button class='plus-item btn btn-primary input-group-addon' data-nome='"+cartArray[i].nome+"'>+</button></div></td>"
-        + "<td>" + cartArray[i].total + "€</td>"
-        + " = " 
-        + "<td><button class='delete-item btn btn-danger btn-delete' data-nome='"+cartArray[i].nome+"'>X</button></td>"
-        +  "</tr>";
+      output+="<tr>"
+      +"<td>"+cartArray[i].nome+"</td>" 
+      +"<td>("+cartArray[i].preco+"€)</td>"
+      +"<td><div class='input-group quantidade-div'><button class='minus-item input-group-addon btn btn-primary' data-nome='"+cartArray[i].nome+"'>-</button>"
+      +"<input type='number' class='item-count  form-quantidade' data-nome='"+cartArray[i].nome+"' value='" + cartArray[i].quantidade + "'>"
+      +"<button class='plus-item btn btn-primary input-group-addon' data-nome='"+cartArray[i].nome+"'>+</button></div></td>"
+      +"<td>"+cartArray[i].total+"€</td>"
+      +"=" 
+      +"<td><button class='delete-item btn btn-danger btn-delete' data-nome='"+cartArray[i].nome+"'>X</button></td>"
+      +"</tr>";
     }
     $('.cart-table-title').html(title);
-  
     $('.show-cart').html(output);
     $('.total-cart').html(shoppingCart.totalCart());
     $('.total-count').html(shoppingCart.totalConta());
-    $('.total-iva').html((shoppingCart.totalCart()-shoppingCart.totalIva()).toFixed(2));
-    
-    console.log((shoppingCart.totalCart()-shoppingCart.totalIva()).toFixed(2));
+    $('.total-iva').html((shoppingCart.totalCart()-shoppingCart.totalIva()).toFixed(2)); 
   }
   
   //Limpa artigo - button
@@ -189,7 +184,6 @@ var shoppingCart = (function() {
     shoppingCart.removeItemCartAll(nome);
     mostraCart();
   })
-  
   
   //Quantidade -1 
   $('.show-cart').on("click", ".minus-item", function(event) {
@@ -219,7 +213,7 @@ var shoppingCart = (function() {
 
   console.log(cart);
   
-///steppers do carrinho
+///stepper do carrinho
 var atualTab = 0;
 mostraTab(atualTab);
 
@@ -239,13 +233,8 @@ function mostraTab(n) {
       document.getElementById("nextBtn").innerHTML = "Submeter";
       document.getElementById("nextBtn").addEventListener("click",function(){
         Submetido(cart);
-        //location.reload();
         shoppingCart.limpaCart();
         mostraCart();
-        //document.getElementById("regForm").submit();
-        //window.location.reload();
-        var email = document.getElementById("emailcart");
-        //console.log(email.value);
       })};  
     fixStepAtivo(n)
 }
@@ -258,6 +247,9 @@ function nextPrev(n) {
       return false;
     }
     x[atualTab].style.display = "none";
+    if(atualTab==2){
+      x[atualTab].style.display="block"
+    }
     atualTab = atualTab + n;
   
     //se fim
@@ -295,7 +287,7 @@ function validaForm() {
           valid=false;
         }
     }
-    //se é valido marca o step como finish
+    //se valido marca o step como finish
     if (valid) {
         document.getElementsByClassName("step")[atualTab].className += " finish";
     }
@@ -312,38 +304,31 @@ function fixStepAtivo(n) {
 
 //Funcao Submetido - envia POST request informação final carrinho
 function Submetido(carrinho) {
-  let nome=document.getElementById("Nome").value;
-  console.log(nome);
-  let email=document.getElementById("emailCart").value;
-  console.log(email);
-  let morada=document.getElementById("moradaCart").value;
-  console.log(morada);
-  let cidade=document.getElementById("cidadeCart").value;
-  console.log(cidade);
-  let codpostal=document.getElementById("codPCart").value;
-  console.log(codpostal);
-  console.log(carrinho);
-    
-  //POST Request carrinho
-        
-  const data = {carrinho,nome,email,morada,cidade,codpostal};
-  console.log(JSON.stringify(data.carrinho));
+    if(carrinho.length!=0){     
+      let nome=document.getElementById("Nome").value;
+      let email=document.getElementById("emailCart").value;
+      let morada=document.getElementById("moradaCart").value;
+      let cidade=document.getElementById("cidadeCart").value;
+      let codpostal=document.getElementById("codPCart").value;
+      const data = {nome,email,morada,cidade,codpostal,carrinho};
 
-  const options = {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data)
-    };
-    const response = fetch('/carrinho', options);
-    if(response){
-      console.log("gravado com sucesso");
-    }else{
-      console.log("erro");
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+      };
+      const response = fetch('/carrinho', options);
+      if(response){
+        console.log("gravado com sucesso");
+      }else{
+        console.log("erro");
+        }
+        document.getElementById("btnpaypal").style.display="none";
+      document.getElementById("confirmar").innerHTML='<i class="fa fa-check-circle" style="font-size:36px"></i>' +
+            '<br>'+
+            '<strong style="font-size:26px">CONFIRMADO COM SUCESSO!</strong>';
       }
-
-    document.getElementById("confirmar").innerHTML='<i class="fa fa-check-circle" style="font-size:36px"></i>' +
-        '<br>'+
-        '<strong style="font-size:26px">CONFIRMADO COM SUCESSO!</strong>';
+      window.location.reload();
 }
