@@ -6,22 +6,15 @@
   "codpostal": "3150-230",
   "carrinho": [
     {
-      "id": "8",
-      "nome": "Pizza Peperoni",
-      "preco": 2.99,
+      "id": "3",
+      "nome": "Evian 1,5L",
+      "preco": 1,
       "iva": "1.23",
       "quantidade": 1
     },
     {
-      "id": "7",
-      "nome": "Luso 33cl",
-      "preco": 1.5,
-      "iva": "1.23",
-      "quantidade": 1
-    },
-    {
-      "id": "6",
-      "nome": "Luso Vidro 1,5L",
+      "id": "5",
+      "nome": "Luso 5L",
       "preco": 1.5,
       "iva": "1.23",
       "quantidade": 1

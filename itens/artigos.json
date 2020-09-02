@@ -74,10 +74,10 @@
   {
     "id": 7,
     "img": "/Assets/",
-    "nome": "",
+    "nome": "Massa Lasanha",
     "preco": 1.5,
     "sem_desconto": null,
-    "info": "",
+    "info": "Massa Lasanha embalagem 400g",
     "extra": "nenhum",
     "iva": 1.23,
     "categoriaid": 2,
@@ -169,11 +169,11 @@
   },
   {
     "id": 15,
-    "img": "/Assets/",
-    "nome": "",
+    "img": "/Assets/arrozcarolino.jpg",
+    "nome": "Arroz Carolino",
     "preco": 1.5,
     "sem_desconto": 2,
-    "info": "",
+    "info": "Arroz Carolino embalagem 1Kg",
     "extra": "nenhum",
     "iva": 1.23,
     "categoriaid": 2,
@@ -182,10 +182,10 @@
   {
     "id": 16,
     "img": "/Assets/",
-    "nome": "",
+    "nome": "Arroz Agulha",
     "preco": 0.5,
     "sem_desconto": 1,
-    "info": "",
+    "info": "Arroz Agulha embalagem 1Kg",
     "extra": "nenhum",
     "iva": 1.23,
     "categoriaid": 2,
@@ -194,10 +194,10 @@
   {
     "id": 17,
     "img": "/Assets/",
-    "nome": "",
+    "nome": "Arroz Vaporizado",
     "preco": 1,
     "sem_desconto": null,
-    "info": "",
+    "info": "Arroz Vaporizado embalagem 1Kg",
     "extra": "nenhum",
     "iva": 1.23,
     "categoriaid": 2,
@@ -206,10 +206,10 @@
   {
     "id": 18,
     "img": "/Assets/",
-    "nome": "",
+    "nome": "Arroz Basmati",
     "preco": 1,
     "sem_desconto": null,
-    "info": "",
+    "info": "Arroz Basmati embalagem 1Kg",
     "extra": "nenhum",
     "iva": 1.23,
     "categoriaid": 2,
@@ -218,10 +218,10 @@
   {
     "id": 19,
     "img": "/Assets/",
-    "nome": "",
+    "nome": "Arroz Risoto",
     "preco": 1.5,
     "sem_desconto": 1.6,
-    "info": "",
+    "info": "Arroz Risoto embalagem 1Kg",
     "extra": "nenhum",
     "iva": 1.23,
     "categoriaid": 2,
@@ -230,10 +230,10 @@
   {
     "id": 20,
     "img": "/Assets/",
-    "nome": "",
+    "nome": "Arroz Integral",
     "preco": 1.5,
     "sem_desconto": 2,
-    "info": "",
+    "info": "Arroz Integral embalagem 1Kg",
     "extra": "nenhum",
     "iva": 1.23,
     "categoriaid": 2,
@@ -242,10 +242,10 @@
   {
     "id": 21,
     "img": "/Assets/",
-    "nome": "",
+    "nome": "Massa Cotovelos",
     "preco": 1.5,
     "sem_desconto": 2,
-    "info": "",
+    "info": "Massa Cotovelos embalagem 500g",
     "extra": "nenhum",
     "iva": 1.23,
     "categoriaid": 2,
@@ -254,10 +254,10 @@
   {
     "id": 22,
     "img": "/Assets/",
-    "nome": "",
+    "nome": "Massa Esparguete",
     "preco": 0.5,
     "sem_desconto": 1,
-    "info": "",
+    "info": "Massa Esparguete embalagem 500g",
     "extra": "nenhum",
     "iva": 1.23,
     "categoriaid": 2,
@@ -266,10 +266,10 @@
   {
     "id": 23,
     "img": "/Assets/",
-    "nome": "",
+    "nome": "Massa Búzios",
     "preco": 1,
     "sem_desconto": null,
-    "info": "",
+    "info": "Massa Búzios embalagem 500g",
     "extra": "nenhum",
     "iva": 1.23,
     "categoriaid": 2,
@@ -278,10 +278,10 @@
   {
     "id": 24,
     "img": "/Assets/",
-    "nome": "",
+    "nome": "Massa Espirais",
     "preco": 1,
     "sem_desconto": null,
-    "info": "",
+    "info": "Massa Espirais embalagem 500g",
     "extra": "nenhum",
     "iva": 1.23,
     "categoriaid": 2,
@@ -290,10 +290,10 @@
   {
     "id": 25,
     "img": "/Assets/",
-    "nome": "",
+    "nome": "Massa Tagliatelle",
     "preco": 1.5,
     "sem_desconto": 1.6,
-    "info": "",
+    "info": "Massa Tagliatelle embalagem 500g",
     "extra": "nenhum",
     "iva": 1.23,
     "categoriaid": 2,
@@ -302,10 +302,10 @@
   {
     "id": 26,
     "img": "/Assets/",
-    "nome": "",
+    "nome": "Pizza Bolonhesa",
     "preco": 1.5,
     "sem_desconto": 2,
-    "info": "",
+    "info": "Pizza Bolonhesa embalagem 375g",
     "extra": "nenhum",
     "iva": 1.23,
     "categoriaid": 3,
@@ -314,10 +314,10 @@
   {
     "id": 27,
     "img": "/Assets/",
-    "nome": "",
+    "nome": "Pizza Carbonara",
     "preco": 0.5,
     "sem_desconto": 1,
-    "info": "",
+    "info": "Pizza Carbonara embalagem 340g",
     "extra": "nenhum",
     "iva": 1.23,
     "categoriaid": 3,
@@ -326,10 +326,10 @@
   {
     "id": 28,
     "img": "/Assets/",
-    "nome": "",
+    "nome": "Pizza Speciale",
     "preco": 1,
     "sem_desconto": null,
-    "info": "",
+    "info": "Pizza Speciale 330g",
     "extra": "nenhum",
     "iva": 1.23,
     "categoriaid": 3,
@@ -338,10 +338,10 @@
   {
     "id": 29,
     "img": "/Assets/",
-    "nome": "",
+    "nome": "Pizza Salame",
     "preco": 1,
     "sem_desconto": null,
-    "info": "",
+    "info": "Pizza Salame embalagem 320g",
     "extra": "nenhum",
     "iva": 1.23,
     "categoriaid": 3,
@@ -350,10 +350,10 @@
   {
     "id": 30,
     "img": "/Assets/",
-    "nome": "",
+    "nome": "Pizza Queijo e Fiambre",
     "preco": 1.5,
     "sem_desconto": 1.6,
-    "info": "",
+    "info": "Pizza Queijo e Fiambre embalagem 330g",
     "extra": "nenhum",
     "iva": 1.23,
     "categoriaid": 3,
@@ -368,8 +368,8 @@
     "info": "",
     "extra": "nenhum",
     "iva": 1.23,
-    "categoriaid": 3,
-    "subcategoriaid": 2
+    "categoriaid": 4,
+    "subcategoriaid": 1 
   },
   {
     "id": 32,
@@ -380,8 +380,8 @@
     "info": "",
     "extra": "nenhum",
     "iva": 1.23,
-    "categoriaid": 3,
-    "subcategoriaid": 2
+    "categoriaid": 4,
+    "subcategoriaid": 1 
   },
   {
     "id": 33,
@@ -392,8 +392,8 @@
     "info": "",
     "extra": "nenhum",
     "iva": 1.23,
-    "categoriaid": 3,
-    "subcategoriaid": 2
+    "categoriaid": 4,
+    "subcategoriaid": 1 
   },
   {
     "id": 34,
@@ -404,8 +404,8 @@
     "info": "",
     "extra": "nenhum",
     "iva": 1.23,
-    "categoriaid": 3,
-    "subcategoriaid": 2
+    "categoriaid": 4,
+    "subcategoriaid": 1
   },
   {
     "id": 35,
@@ -416,8 +416,8 @@
     "info": "",
     "extra": "nenhum",
     "iva": 1.23,
-    "categoriaid": 3,
-    "subcategoriaid": 2
+    "categoriaid": 4,
+    "subcategoriaid": 1
   },
   {
     "id": 36,
@@ -428,7 +428,7 @@
     "info": "",
     "extra": "nenhum",
     "iva": 1.23,
-    "categoriaid": 3,
-    "subcategoriaid": 2
+    "categoriaid": 4,
+    "subcategoriaid": 1
   }
 ]
