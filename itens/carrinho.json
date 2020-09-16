@@ -6,15 +6,22 @@
   "codpostal": "3150-230",
   "carrinho": [
     {
-      "id": "3",
-      "nome": "Evian 1,5L",
-      "preco": 1,
+      "id": "8",
+      "nome": "Coca Cola 1,5L",
+      "preco": 1.5,
       "iva": "1.23",
       "quantidade": 1
     },
     {
-      "id": "5",
-      "nome": "Luso 5L",
+      "id": "2",
+      "nome": "Alcafaz 1,5L",
+      "preco": 0.5,
+      "iva": "1.23",
+      "quantidade": 1
+    },
+    {
+      "id": "21",
+      "nome": "Massa Cotovelos",
       "preco": 1.5,
       "iva": "1.23",
       "quantidade": 1

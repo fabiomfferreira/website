@@ -13,14 +13,14 @@
   },
   {
     "id": 2,
-    "img": "/Assets/agua_alcafaz.jpg",
-    "nome": "Alcafaz 1,5L",
-    "preco": 0.5,
-    "sem_desconto": 1,
-    "info": "agua alcafaz 1,5L",
+    "img": "/Assets/pizza_peperoni.jpg",
+    "nome": "Pizza Peperoni",
+    "preco": 2.99,
+    "sem_desconto": 3.99,
+    "info": "Pizza Peperoni Congelada",
     "extra": "nenhum",
     "iva": 1.23,
-    "categoriaid": 1,
+    "categoriaid": 3,
     "subcategoriaid": 1
   },
   {
@@ -79,9 +79,7 @@
     "sem_desconto": null,
     "info": "Massa Lasanha embalagem 400g",
     "extra": "nenhum",
-    "iva": 1.23,
-    "categoriaid": 2,
-    "subcategoriaid": 2
+    "iva": 1.23
   },
   {
     "id": 8,
@@ -156,15 +154,15 @@
     "subcategoriaid": 2
   },
   {
-    "id": 14,
-    "img": "/Assets/pizza_peperoni.jpg",
-    "nome": "Pizza Peperoni",
-    "preco": 2.99,
-    "sem_desconto":3.99,
-    "info": "Pizza Peperoni Congelada",
+    "id": 2,
+    "img": "/Assets/agua_alcafaz.jpg",
+    "nome": "Alcafaz 1,5L",
+    "preco": 0.5,
+    "sem_desconto": 1,
+    "info": "agua alcafaz 1,5L",
     "extra": "nenhum",
     "iva": 1.23,
-    "categoriaid": 3,
+    "categoriaid": 1,
     "subcategoriaid": 1
   },
   {
@@ -247,9 +245,7 @@
     "sem_desconto": 2,
     "info": "Massa Cotovelos embalagem 500g",
     "extra": "nenhum",
-    "iva": 1.23,
-    "categoriaid": 2,
-    "subcategoriaid": 2
+    "iva": 1.23
   },
   {
     "id": 22,
@@ -259,9 +255,7 @@
     "sem_desconto": 1,
     "info": "Massa Esparguete embalagem 500g",
     "extra": "nenhum",
-    "iva": 1.23,
-    "categoriaid": 2,
-    "subcategoriaid": 2
+    "iva": 1.23
   },
   {
     "id": 23,
@@ -271,9 +265,7 @@
     "sem_desconto": null,
     "info": "Massa Búzios embalagem 500g",
     "extra": "nenhum",
-    "iva": 1.23,
-    "categoriaid": 2,
-    "subcategoriaid": 2
+    "iva": 1.23
   },
   {
     "id": 24,
@@ -283,9 +275,7 @@
     "sem_desconto": null,
     "info": "Massa Espirais embalagem 500g",
     "extra": "nenhum",
-    "iva": 1.23,
-    "categoriaid": 2,
-    "subcategoriaid": 2
+    "iva": 1.23
   },
   {
     "id": 25,
@@ -295,9 +285,7 @@
     "sem_desconto": 1.6,
     "info": "Massa Tagliatelle embalagem 500g",
     "extra": "nenhum",
-    "iva": 1.23,
-    "categoriaid": 2,
-    "subcategoriaid": 2
+    "iva": 1.23
   },
   {
     "id": 26,
@@ -350,7 +338,7 @@
   {
     "id": 30,
     "img": "/Assets/pizzaqueijofiambre.jpg",
-    "nome": "Pizza Queijo e Fiambre",
+    "nome": "Pizza Fiambre",
     "preco": 1.5,
     "sem_desconto": 1.6,
     "info": "Pizza Queijo e Fiambre embalagem 330g",
@@ -361,59 +349,51 @@
   },
   {
     "id": 31,
-    "img": "/Assets/",
-    "nome": "",
-    "preco": 1.5,
-    "sem_desconto": 2,
-    "info": "",
+    "img": "/Assets/gelatinamorango.jpg",
+    "nome": "Gelatina Morango",
+    "preco": 0.95,
+    "sem_desconto": null,
+    "info": "Gelatina em Pó Morango",
     "extra": "nenhum",
-    "iva": 1.23,
-    "categoriaid": 4,
-    "subcategoriaid": 1 
+    "iva": 1.23
   },
   {
     "id": 32,
-    "img": "/Assets/",
-    "nome": "",
-    "preco": 0.5,
-    "sem_desconto": 1,
-    "info": "",
+    "img": "/Assets/gelatinaananas.jpg",
+    "nome": "Gelatina Ananás",
+    "preco": 0.95,
+    "sem_desconto": null,
+    "info": "Gelatina em Pó Ananás",
     "extra": "nenhum",
-    "iva": 1.23,
-    "categoriaid": 4,
-    "subcategoriaid": 1 
+    "iva": 1.23
   },
   {
     "id": 33,
-    "img": "/Assets/",
-    "nome": "",
-    "preco": 1,
+    "img": "/Assets/gelatinamelancia.jpg",
+    "nome": "Gelatina Melancia",
+    "preco": 0.95,
     "sem_desconto": null,
-    "info": "",
+    "info": "Gelatina em Pó Melancia",
     "extra": "nenhum",
-    "iva": 1.23,
-    "categoriaid": 4,
-    "subcategoriaid": 1 
+    "iva": 1.23
   },
   {
     "id": 34,
-    "img": "/Assets/",
-    "nome": "",
-    "preco": 1,
+    "img": "/Assets/gelatinalimao.jpg",
+    "nome": "Gelatina Limão",
+    "preco": 0.95,
     "sem_desconto": null,
-    "info": "",
+    "info": "Gelatina em Pó Limão",
     "extra": "nenhum",
-    "iva": 1.23,
-    "categoriaid": 4,
-    "subcategoriaid": 1
+    "iva": 1.23
   },
   {
     "id": 35,
-    "img": "/Assets/",
-    "nome": "",
-    "preco": 1.5,
-    "sem_desconto": 1.6,
-    "info": "",
+    "img": "/Assets/gelatinatropical.jpg",
+    "nome": "Gelatina Tropical",
+    "preco": 0.95,
+    "sem_desconto": null,
+    "info": "Gelatina em Pó Frutos Tropicais",
     "extra": "nenhum",
     "iva": 1.23,
     "categoriaid": 4,
@@ -421,14 +401,12 @@
   },
   {
     "id": 36,
-    "img": "/Assets/",
-    "nome": "",
-    "preco": 1.5,
-    "sem_desconto": 2,
-    "info": "",
+    "img": "/Assets/gelatinabosque.jpg",
+    "nome": "Gelatina Bosque",
+    "preco": 0.95,
+    "sem_desconto": null,
+    "info": "Gelatina em Pó Frutos do Bosque",
     "extra": "nenhum",
-    "iva": 1.23,
-    "categoriaid": 4,
-    "subcategoriaid": 1
+    "iva": 1.23
   }
 ]

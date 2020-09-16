@@ -270,7 +270,7 @@ app.post('/desassociaartigo', function(request, response){
   }
   //desassocia artigo dos itens (categoria e subcategoria)
   for(let i in artigos){
-      if(artigos[i].categoriaid==idcategoria && artigos[i].subcategoriaid==idsubcategoria){
+      if(artigos[i].categoriaid==idcategoria && artigos[i].subcategoriaid==idsubcategoria && artigos[i].nome==data.artigo){
         delete artigos[i].categoriaid;
         delete artigos[i].subcategoriaid;
       }
